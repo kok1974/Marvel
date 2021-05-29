@@ -1,0 +1,56 @@
+.carousel .carousel-item{
+    max-height: 600px;
+}
+
+.carousel-inner .carousel-item img{
+    max-width: 100%;
+    width: 100%;
+    object-fit: fill;
+    height: auto;}
+
+.carousel-caption-mio{
+    width: 45%;
+    text-align: left;
+    background-color: #1F2041;
+    opacity: 0.75;
+    bottom: 15%;
+    top: 70%;
+    padding-left: 3%;
+    z-index: 10;
+    position: absolute;
+}
+
+.colorNav {
+    background-color: #1F2041;
+}
+
+.navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
+	border-bottom:3px solid #f0f1f8;
+}
+
+.nav-item .dropdown-item:hover{
+    background-color: #121326;
+    }
+
+H1,H2,H3{
+    text-align: left;
+    color: white;
+}
+P{
+    text-align: left;
+    color: white;
+}
+
+.cuerpo{
+    background-color: #E5E5E5;
+}
+.platos{
+    background-color: #227C9D;
+}
+.contacto{
+    background-color: #1F2041;
+}
+.contacto H1, .contacto P{
+text-align: center;
+}
+
