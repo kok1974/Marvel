@@ -29,7 +29,10 @@ class AddConstrainsComicsTable extends Migration
     public function down()
     {
         Schema::table('comics', function (Blueprint $table) {
-            //
+            $table->dropForeign('comics_serie_id_foreign');
+            $table->dropForeign('comics_guionista_id_foreign');
+            $table->dropForeign('comics_dibujante_id_foreign');
+            $table->dropForeign('comics_artistaPortada_id_foreign');
         });
     }
 }
