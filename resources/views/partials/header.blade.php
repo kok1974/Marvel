@@ -1,14 +1,14 @@
 <!-- Left Side Of Header -->
-<div class="col-12 col-sm-8 col-md-9 justify-content-left">
-    <div class="col-12">
-        <a class="nav-link text-white" href="{{ url('/') }}">
-            {{ config('app.name', 'Mis colecciones Marvel') }}
+<div class="col-12 col-sm-8 col-md-5 offset-md-4 justify-content-end">
+
+        <a class="text-white" href="{{ url('/') }}">
+            <img class="d-block img-fluid" src="imagenes/header.svg" alt="logo1" style="height: 60px">
         </a>
-    </div>
+
 </div>
 
 <!-- Right Side Of Header -->
-<div class="col-12 col-sm-4 col-md-3">
+<div class="col-12 col-sm-4 col-md-3 ml-md-auto">
     <!-- Authentication Links -->
     <div class="row justify-content-end">
         @guest
