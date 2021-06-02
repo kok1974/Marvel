@@ -1,15 +1,28 @@
-<footer class="row mx-0 p-5 mt-3 colorNav">
-
+<footer class="row mx-0 p-3 colorNav">
     <div class="col-12">
         <div class="row justify-content-center text-white">
-            <div class="col-12 col-md-3 border-right border-white">
-                <H4>Mis colecciones Marvel</H4>
-
-                <P class="text-left">Proyecto DAW</P>
-                <P class="text-left">David F. Viladés Tortosa</P>
-                <H6>© Compu Global 2021</H6>
+            <div class="col-12 col-sm-4 col-lg-3 justify-content-center align-items-start">
+                <a href="{{ url('/') }}" >
+                    <img class="d-block img-fluid" src="imagenes/mis coleecciones marvel 1.svg" alt="logo1" style="max-height: 150px;margin: 0 auto;">
+                </a>
             </div>
-            <div class="col-12 col-md-3">
+            <div class="col-12 col-sm-4 col-lg-3">
+                <div class="row">
+                    <div class="col-12">
+                    <P class="text-left">Proyecto DAW</P>
+                    <P class="text-left">David F. Viladés Tortosa</P>
+                    <H6>© Compu Global 2021</H6>
+                    </div>
+                </div>
+                <div class="row social">
+                    <a class="text-danger" href="https://www.facebook.com/"><i class="fa fa-facebook-square"></i></a>
+                    <a class="text-danger" href="https://twitter.com/"><i class="fa fa-twitter-square"></i></a>
+                    <a class="text-danger" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
+                    <a class="text-danger" href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <div class="col-12 col-sm-4 col-lg-3">
                 <a class="justify-content-center m-3" href="https://www.marvel.com/">
                     <span class="icon--svg icon--svg mvl-animated-logo" aria-hidden="true">
                         <svg width="130" height="52" xmlns="http://www.w3.org/2000/svg">
@@ -25,14 +38,5 @@
             </div>
         </div>
     </div>
-    <div class="col-12">
-        <div class="row justify-content-center">
-            <div class="col col-md-3 span3 social">
-                <a class="nav-link text-danger" href="https://www.facebook.com/"><i class="fa fa-facebook-square"></i></a>
-                <a class="nav-link text-danger" href="https://twitter.com/"><i class="fa fa-twitter-square"></i></a>
-                <a class="nav-link text-danger" href="https://www.youtube.com/"><i class="fa fa-youtube"></i></a>
-                <a class="nav-link text-danger" href="https://www.instagram.com/"><i class="fa fa-instagram"></i></a>
-            </div>
-        </div>
-    </div>
+
 </footer>
