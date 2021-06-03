@@ -22,4 +22,12 @@ class Event extends Model
         'inicio',
         'fin'
     ];
+
+    /**
+     * The comics that belong to the character.
+     */
+    public function comics()
+    {
+        return $this->belongsToMany(Comic::class, 'comics_events','event_id','comic_id');
+    }
 }

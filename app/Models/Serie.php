@@ -23,4 +23,12 @@ class Serie extends Model
         'imagen',
         'mime'
     ];
+
+    /**
+     * The comics that belong to the serie.
+     */
+    public function comics()
+    {
+        return $this->hasMany(Comic::class,'serie_id','serie_id');
+    }
 }

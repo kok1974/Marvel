@@ -42,4 +42,12 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The comics that belong to the user.
+     */
+    public function comics()
+    {
+        return $this->belongsToMany(Comic::class, 'comics_users','user_id','comic_id');
+    }
 }

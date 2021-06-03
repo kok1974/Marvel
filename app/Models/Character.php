@@ -24,4 +24,11 @@ class Character extends Model
         'mime'
     ];
 
+    /**
+     * The comics that belong to the character.
+     */
+    public function comics()
+    {
+        return $this->belongsToMany(Comic::class, 'comics_characters','personaje_id','comic_id');
+    }
 }
