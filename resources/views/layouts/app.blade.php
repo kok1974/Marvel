@@ -27,10 +27,10 @@
 </head>
 <body>
     <div class="container-fluid px-0">
-        <header id="app" class="row colorNav mx-0 py-3 boder border-bottom">
-            @include('partials.header')
+        <header id="app">
+            @include('partials.navbar')
         </header>
-        @include('partials.navbar')
+
 
         @yield('content')
 

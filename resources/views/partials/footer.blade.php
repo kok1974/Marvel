@@ -1,9 +1,9 @@
-<footer class="row mx-0 p-3 colorNav">
+<footer class="row mx-0 p-3 navbar-inverse">
     <div class="col-12">
         <div class="row justify-content-center text-white">
             <div class="col-12 col-sm-4 col-lg-3 justify-content-center align-items-start">
                 <a href="{{ url('/') }}" >
-                    <img class="d-block img-fluid" src="imagenes/mis coleecciones marvel 1.svg" alt="logo1" style="max-height: 150px;margin: 0 auto;">
+                    <img class="d-block img-fluid" src="imagenes/logo1.svg" alt="logo1" style="max-height: 150px;margin: 0 auto;">
                 </a>
             </div>
             <div class="col-12 col-sm-4 col-lg-3">

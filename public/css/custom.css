@@ -4,12 +4,31 @@ body {
 }
 
 /* Barra navegación */
-.colorNav {
-    background-color: #1F2041;
+
+.navbar-inverse {
+    color: #ffffff !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0) linear-gradient(to right, #1F2041 0px, #7579f3 100%) repeat scroll 0 0 !important;
+}
+
+.navbar-nav .nav-item .nav-link {
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1;
+    padding: 0.9rem 0 0.8rem;
+    text-transform: capitalize;
+    color: #121212;
+}
+
+.navbar-inverse .navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:hover,
+.navbar-inverse .navbar-nav .nav-link:focus,
+.navbar-nav .nav-link:focus {
+    opacity: 0.8;
 }
 
 .navbar-nav > li > a {
-    border-bottom:3px solid #1F2041;
+    border-bottom:3px solid #121326;
 }
 
 .navbar-nav > li > a:hover, .navbar-nav > li > a:focus {
@@ -18,6 +37,10 @@ body {
 
 .nav-item .dropdown-item:hover{
     background-color: #121326;
+}
+
+.color-drop {
+    background-color: #1F2041;
 }
 
 /* Carousel */
@@ -56,7 +79,7 @@ body {
 .autenficando{
     align-items: center;
     background-image: url('../imagenes/fondo.jpg');
-    height: 61.2vh;
+    height: 65vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
