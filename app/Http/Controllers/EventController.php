@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
+/**
+ * Class EventController
+ * @package App\Http\Controllers
+ */
 class EventController extends Controller
 {
     /**
@@ -14,7 +18,10 @@ class EventController extends Controller
      */
     public function index()
     {
-        //
+        $events = Event::paginate();
+
+        return view('event.index', compact('events'))
+            ->with('i', (request()->input('page', 1) - 1) * $events->perPage());
     }
 
     /**
@@ -24,62 +31,79 @@ class EventController extends Controller
      */
     public function create()
     {
-        //
+        $event = new Event();
+        return view('event.create', compact('event'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Event::$rules);
+
+        $event = Event::create($request->all());
+
+        return redirect()->route('events.index')
+            ->with('success', 'Event created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('event.show', compact('event'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Event  $event
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        $event = Event::find($id);
+
+        return view('event.edit', compact('event'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Event  $event
+     * @param  \Illuminate\Http\Request $request
+     * @param  Event $event
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Event $event)
     {
-        //
+        request()->validate(Event::$rules);
+
+        $event->update($request->all());
+
+        return redirect()->route('events.index')
+            ->with('success', 'Event updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Event  $event
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Event $event)
+    public function destroy($id)
     {
-        //
+        $event = Event::find($id)->delete();
+
+        return redirect()->route('events.index')
+            ->with('success', 'Event deleted successfully');
     }
 }

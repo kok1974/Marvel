@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Character;
+use App\Series;
 use Illuminate\Http\Request;
 
 /**
- * Class CharacterController
+ * Class SeriesController
  * @package App\Http\Controllers
  */
-class CharacterController extends Controller
+class SeriesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,10 +18,10 @@ class CharacterController extends Controller
      */
     public function index()
     {
-        $characters = Character::paginate();
+        $series = Series::paginate();
 
-        return view('character.index', compact('characters'))
-            ->with('i', (request()->input('page', 1) - 1) * $characters->perPage());
+        return view('series.index', compact('series'))
+            ->with('i', (request()->input('page', 1) - 1) * $series->perPage());
     }
 
     /**
@@ -31,8 +31,8 @@ class CharacterController extends Controller
      */
     public function create()
     {
-        $character = new Character();
-        return view('character.create', compact('character'));
+        $series = new Series();
+        return view('series.create', compact('series'));
     }
 
     /**
@@ -43,12 +43,12 @@ class CharacterController extends Controller
      */
     public function store(Request $request)
     {
-        request()->validate(Character::$rules);
+        request()->validate(Series::$rules);
 
-        $character = Character::create($request->all());
+        $series = Series::create($request->all());
 
-        return redirect()->route('characters.index')
-            ->with('success', 'Character created successfully.');
+        return redirect()->route('series.index')
+            ->with('success', 'Series created successfully.');
     }
 
     /**
@@ -59,9 +59,9 @@ class CharacterController extends Controller
      */
     public function show($id)
     {
-        $character = Character::find($id);
+        $series = Series::find($id);
 
-        return view('character.show', compact('character'));
+        return view('series.show', compact('series'));
     }
 
     /**
@@ -72,26 +72,26 @@ class CharacterController extends Controller
      */
     public function edit($id)
     {
-        $character = Character::find($id);
+        $series = Series::find($id);
 
-        return view('character.edit', compact('character'));
+        return view('series.edit', compact('series'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request $request
-     * @param  Character $character
+     * @param  Series $series
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Character $character)
+    public function update(Request $request, Series $series)
     {
-        request()->validate(Character::$rules);
+        request()->validate(Series::$rules);
 
-        $character->update($request->all());
+        $series->update($request->all());
 
-        return redirect()->route('characters.index')
-            ->with('success', 'Character updated successfully');
+        return redirect()->route('series.index')
+            ->with('success', 'Series updated successfully');
     }
 
     /**
@@ -101,9 +101,9 @@ class CharacterController extends Controller
      */
     public function destroy($id)
     {
-        $character = Character::find($id)->delete();
+        $series = Series::find($id)->delete();
 
-        return redirect()->route('characters.index')
-            ->with('success', 'Character deleted successfully');
+        return redirect()->route('series.index')
+            ->with('success', 'Series deleted successfully');
     }
 }

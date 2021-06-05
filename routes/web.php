@@ -20,3 +20,6 @@ Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Auth::routes();
 
+Route::resource('/admin/users', App\Http\Controllers\UserController::class);
+Route::resource('/admin/series', App\Http\Controllers\SeriesController::class);
+Route::resource('characters', App\Http\Controllers\CharacterController::class);

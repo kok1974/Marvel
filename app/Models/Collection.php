@@ -20,4 +20,20 @@ class Collection extends Model
     'comic_id',
     'user_id'
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function comic()
+    {
+        return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function user()
+    {
+        return $this->hasOne('App\User', 'user_id', 'user_id');
+    }
 }

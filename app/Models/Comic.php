@@ -60,7 +60,7 @@ class Comic extends Model
      */
     public function serie()
     {
-        return $this->belongsTo(Serie::class,'serie_id' ,'serie_id');
+        return $this->hasOne(Serie::class,'serie_id' ,'serie_id');
     }
 
     /**
@@ -68,7 +68,7 @@ class Comic extends Model
      */
     public function comicsGuionista()
     {
-        return $this->belongsTo(Creator::class,'guonista_id','creator_id');
+        return $this->hasOne(Creator::class,'guonista_id','creator_id');
     }
 
     /**
@@ -76,7 +76,7 @@ class Comic extends Model
      */
     public function comicsDibujante()
     {
-        return $this->belongsTo(Creator::class,'dibujante_id','creator_id');
+        return $this->hasOne(Creator::class,'dibujante_id','creator_id');
     }
 
     /**
@@ -84,6 +84,6 @@ class Comic extends Model
      */
     public function comicsArtistaPortada()
     {
-        return $this->belongsTo(Creator::class,'artistaPortada_id','creator_id');
+        return $this->hasOne(Creator::class,'artistaPortada_id','creator_id');
     }
 }

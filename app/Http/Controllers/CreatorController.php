@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Creator;
+use App\Creator;
 use Illuminate\Http\Request;
 
+/**
+ * Class CreatorController
+ * @package App\Http\Controllers
+ */
 class CreatorController extends Controller
 {
     /**
@@ -14,7 +18,10 @@ class CreatorController extends Controller
      */
     public function index()
     {
-        //
+        $creators = Creator::paginate();
+
+        return view('creator.index', compact('creators'))
+            ->with('i', (request()->input('page', 1) - 1) * $creators->perPage());
     }
 
     /**
@@ -24,62 +31,79 @@ class CreatorController extends Controller
      */
     public function create()
     {
-        //
+        $creator = new Creator();
+        return view('creator.create', compact('creator'));
     }
 
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        //
+        request()->validate(Creator::$rules);
+
+        $creator = Creator::create($request->all());
+
+        return redirect()->route('creators.index')
+            ->with('success', 'Creator created successfully.');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Creator  $creator
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Creator $creator)
+    public function show($id)
     {
-        //
+        $creator = Creator::find($id);
+
+        return view('creator.show', compact('creator'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Creator  $creator
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Creator $creator)
+    public function edit($id)
     {
-        //
+        $creator = Creator::find($id);
+
+        return view('creator.edit', compact('creator'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Creator  $creator
+     * @param  \Illuminate\Http\Request $request
+     * @param  Creator $creator
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Creator $creator)
     {
-        //
+        request()->validate(Creator::$rules);
+
+        $creator->update($request->all());
+
+        return redirect()->route('creators.index')
+            ->with('success', 'Creator updated successfully');
     }
 
     /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Creator  $creator
-     * @return \Illuminate\Http\Response
+     * @param int $id
+     * @return \Illuminate\Http\RedirectResponse
+     * @throws \Exception
      */
-    public function destroy(Creator $creator)
+    public function destroy($id)
     {
-        //
+        $creator = Creator::find($id)->delete();
+
+        return redirect()->route('creators.index')
+            ->with('success', 'Creator deleted successfully');
     }
 }
