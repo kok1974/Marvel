@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('template_title')
     Series
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Serie Id</th>
 										<th>Titulo</th>
 										<th>Descripcion</th>
@@ -49,7 +49,7 @@
                                     @foreach ($series as $series)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $series->serie_id }}</td>
 											<td>{{ $series->titulo }}</td>
 											<td>{{ $series->descripcion }}</td>

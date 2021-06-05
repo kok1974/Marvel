@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app3')
 
 @section('template_title')
     {{ $creator->name ?? 'Show Creator' }}
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Creator Id:</strong>
                             {{ $creator->creator_id }}

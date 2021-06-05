@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app3')
 
 @section('template_title')
     {{ $comicsEvent->name ?? 'Show Comics Event' }}
@@ -19,7 +19,7 @@
                     </div>
 
                     <div class="card-body">
-                        
+
                         <div class="form-group">
                             <strong>Comic Id:</strong>
                             {{ $comicsEvent->comic_id }}

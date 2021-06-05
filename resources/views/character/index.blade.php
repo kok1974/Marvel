@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('template_title')
     Character
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Personaje Id</th>
 										<th>Nombre</th>
 										<th>Descripcion</th>
@@ -46,10 +46,10 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($characters as $character)
+                                    @foreach ($characters ?? '' as $character)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $character->personaje_id }}</td>
 											<td>{{ $character->nombre }}</td>
 											<td>{{ $character->descripcion }}</td>
@@ -72,7 +72,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $characters->links() !!}
+                {!! $characters ?? ''->links() !!}
             </div>
         </div>
     </div>

@@ -43,6 +43,14 @@ body {
     background-color: #1F2041;
 }
 
+.navbar-nav li:hover > div.dropdown-menu {
+    display: block;
+}
+
+li.dropdown > a:hover:after {
+    transform: rotate(-90deg);
+}
+
 /* Carousel */
 .carousel .carousel-item{
     max-height: 550px;
@@ -79,7 +87,7 @@ body {
 .autenficando{
     align-items: center;
     background-image: url('../imagenes/fondo.jpg');
-    height: 65vh;
+    height: 68.5vh;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;

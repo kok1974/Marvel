@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('template_title')
     Creator
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Creator Id</th>
 										<th>Nombre</th>
 										<th>Apellidos</th>
@@ -50,7 +50,7 @@
                                     @foreach ($creators as $creator)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $creator->creator_id }}</td>
 											<td>{{ $creator->nombre }}</td>
 											<td>{{ $creator->apellidos }}</td>

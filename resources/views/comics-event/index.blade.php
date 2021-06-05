@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.app2')
 
 @section('template_title')
     Comics Event
@@ -35,7 +35,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Comic Id</th>
 										<th>Event Id</th>
 
@@ -46,7 +46,7 @@
                                     @foreach ($comicsEvents as $comicsEvent)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $comicsEvent->comic_id }}</td>
 											<td>{{ $comicsEvent->event_id }}</td>
 
