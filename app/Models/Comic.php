@@ -2,88 +2,135 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * Class Comic
+ *
+ * @property $comic_id
+ * @property $serie_id
+ * @property $titulo
+ * @property $numero
+ * @property $descripcion
+ * @property $formato
+ * @property $imagen
+ * @property $mime
+ * @property $guionista_id
+ * @property $dibujante_id
+ * @property $artistaPortada_id
+ * @property $variantesPortada
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property ComicsCharacter $comicsCharacter
+ * @property ComicsEvent $comicsEvent
+ * @property ComicsUser $comicsUser
+ * @property Creator $writer
+ * @property Creator $coverArtist
+ * @property Creator $penciller
+ * @property Series $series
+ * @property VariantsCover $variantsCover
+ * @property VariantsCover[] $variantsCovers
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Comic extends Model
 {
     use HasFactory;
 
     protected $primaryKey = 'comic_id';
 
+    static $rules = [
+		'comic_id' => 'required',
+		'serie_id' => 'required',
+		'titulo' => 'required',
+		'numero' => 'required',
+		'guionista_id' => 'required',
+		'dibujante_id' => 'required',
+		'variantesPortada' => 'required',
+    ];
+
+    protected $perPage = 20;
+
     /**
-     * The attributes that are mass assignable.
+     * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'comic_id',
-        'serie_id',
-        'titulo',
-        'numero',
-        'descripcion',
-        'formato',
-        'imagen',
-        'mime',
-        'guionista_id',
-        'dibujante_id',
-        'artistaPortada_id',
-        'variantesPortada'
-    ];
+    protected $fillable = ['comic_id','serie_id','titulo','numero','descripcion','formato','imagen','mime','guionista_id','dibujante_id','artistaPortada_id','variantesPortada'];
+
 
     /**
-     * The users that belong to the comic.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function users()
+    public function comicsCharacter()
     {
-        return $this->belongsToMany(User::class, 'comics_users','comic_id','user_id');
+        return $this->hasOne('App\ComicsCharacter', 'comic_id', 'comic_id');
     }
 
     /**
-     * The character that belong to the comics.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function character()
+    public function comicsEvent()
     {
-        return $this->belongsToMany(Character::class, 'comics_characters','comic_id','personaje_id');
+        return $this->hasOne('App\ComicsEvent', 'comic_id', 'comic_id');
     }
 
     /**
-     * The event that belong to the comics.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function event()
+    public function comicsUser()
     {
-        return $this->belongsToMany(Character::class, 'comics_events','comic_id','event_id');
+        return $this->hasOne('App\ComicsUser', 'comic_id', 'comic_id');
     }
 
     /**
-     * The serie that belong to the comics.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function serie()
+    public function writer()
     {
-        return $this->hasOne(Serie::class,'serie_id' ,'serie_id');
+        return $this->hasOne('App\Creator', 'creator_id', 'guionista_id');
     }
 
     /**
-     * The comics that belong to the writer.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function comicsGuionista()
+    public function coverArtist()
     {
-        return $this->hasOne(Creator::class,'guonista_id','creator_id');
+        return $this->hasOne('App\Creator', 'creator_id', 'artistaPortada_id');
     }
 
     /**
-     * The comics that belong to the penciler.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function comicsDibujante()
+    public function penciller()
     {
-        return $this->hasOne(Creator::class,'dibujante_id','creator_id');
+        return $this->hasOne('App\Creator', 'creator_id', 'dibujante_id');
     }
 
     /**
-     * The comics that belong to the cover's artits.
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function comicsArtistaPortada()
+    public function series()
     {
-        return $this->hasOne(Creator::class,'artistaPortada_id','creator_id');
+        return $this->hasOne('App\Series', 'serie_id', 'serie_id');
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function variantsCover()
+    {
+        return $this->hasOne('App\VariantsCover', 'original_id', 'comic_id');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function variantsCovers()
+    {
+        return $this->hasMany('App\VariantsCover', 'variante_id', 'comic_id');
+    }
+
 }

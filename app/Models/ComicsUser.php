@@ -1,28 +1,32 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
- * Class ComicsEvent
+ * Class ComicsUser
  *
  * @property $comic_id
- * @property $event_id
+ * @property $user_id
  * @property $created_at
  * @property $updated_at
  *
  * @property Comic $comic
- * @property Event $event
+ * @property User $user
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class ComicsEvent extends Model
+class ComicsUser extends Model
 {
-    
+    use HasFactory;
+
+    protected $table = 'comics_users';
+
     static $rules = [
 		'comic_id' => 'required',
-		'event_id' => 'required',
+		'user_id' => 'required',
     ];
 
     protected $perPage = 20;
@@ -32,7 +36,7 @@ class ComicsEvent extends Model
      *
      * @var array
      */
-    protected $fillable = ['comic_id','event_id'];
+    protected $fillable = ['comic_id','user_id'];
 
 
     /**
@@ -42,14 +46,14 @@ class ComicsEvent extends Model
     {
         return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function event()
+    public function user()
     {
-        return $this->hasOne('App\Event', 'event_id', 'event_id');
+        return $this->hasOne('App\User', 'user_id', 'user_id');
     }
-    
+
 
 }

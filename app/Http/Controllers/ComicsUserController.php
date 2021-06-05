@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\ComicsUser;
+use App\Models\ComicsUser;
 use Illuminate\Http\Request;
 
 /**

@@ -1,8 +1,9 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Series
@@ -21,7 +22,10 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Series extends Model
 {
-    
+    use HasFactory;
+
+    protected $primaryKey = 'serie_id';
+
     static $rules = [
 		'serie_id' => 'required',
 		'titulo' => 'required',
@@ -44,6 +48,6 @@ class Series extends Model
     {
         return $this->hasMany('App\Comic', 'serie_id', 'serie_id');
     }
-    
+
 
 }

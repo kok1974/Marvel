@@ -2,50 +2,72 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
+/**
+ * Class Creator
+ *
+ * @property $creator_id
+ * @property $nombre
+ * @property $apellidos
+ * @property $imagen
+ * @property $mime
+ * @property $tipo
+ * @property $created_at
+ * @property $updated_at
+ *
+ * @property Comic[] $comicsWriter
+ * @property Comic[] $comicsPenciller
+ * @property Comic[] $comicsCoverArtist
+ * @package App
+ * @mixin \Illuminate\Database\Eloquent\Builder
+ */
 class Creator extends Model
 {
     use HasFactory;
 
     protected $primaryKey = 'creator_id';
 
+    static $rules = [
+		'creator_id' => 'required',
+		'nombre' => 'required',
+		'apellidos' => 'required',
+    ];
+
+    protected $perPage = 20;
+
     /**
-     * The attributes that are mass assignable.
+     * Attributes that should be mass-assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'creator_id',
-        'nombre',
-        'apellidos',
-        'imagen',
-        'mime',
-        'tipo'
-    ];
+    protected $fillable = ['creator_id','nombre','apellidos','imagen','mime','tipo'];
+
 
     /**
-     * The comics that belong to the writer.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comicsGuionista()
+    public function comicsWriter()
     {
-        return $this->hasMany(Comic::class,'guonista_id','creator_id');
+        return $this->hasMany('App\Comic', 'guionista_id', 'creator_id');
     }
 
     /**
-     * The comics that belong to the penciler.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comicsDibujante()
+    public function comicsPenciller()
     {
-        return $this->hasMany(Comic::class,'dibujante_id','creator_id');
+        return $this->hasMany('App\Comic', 'artistaPortada_id', 'creator_id');
     }
 
     /**
-     * The comics that belong to the cover's artits.
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
-    public function comicsArtistaPortada()
+    public function comicsCoverArtist()
     {
-        return $this->hasMany(Comic::class,'artistaPortada_id','creator_id');
+        return $this->hasMany('App\Comic', 'dibujante_id', 'creator_id');
     }
+
+
 }
