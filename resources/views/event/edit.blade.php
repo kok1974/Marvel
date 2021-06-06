@@ -1,7 +1,7 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 
 @section('template_title')
-    Update Event
+    Editar Evento
 @endsection
 
 @section('content')
@@ -13,10 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Event</span>
+                        <span class="card-title">Editar Evento</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('events.update', $event->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('events.update', $event->event_id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

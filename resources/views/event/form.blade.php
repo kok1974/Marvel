@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('event_id') }}
             {{ Form::text('event_id', $event->event_id, ['class' => 'form-control' . ($errors->has('event_id') ? ' is-invalid' : ''), 'placeholder' => 'Event Id']) }}
@@ -15,6 +15,11 @@
             {{ Form::label('descripcion') }}
             {{ Form::text('descripcion', $event->descripcion, ['class' => 'form-control' . ($errors->has('descripcion') ? ' is-invalid' : ''), 'placeholder' => 'Descripcion']) }}
             {!! $errors->first('descripcion', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
+        <div class="form-group">
+            {{ Form::label('imagen') }}
+            {{ Form::text('imagen', $event->imagen, ['class' => 'form-control' . ($errors->has('imagen') ? ' is-invalid' : ''), 'placeholder' => 'Imagen']) }}
+            {!! $errors->first('imagen', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('inicio') }}
