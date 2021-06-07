@@ -37,7 +37,9 @@
                                         <th>No</th>
 
 										<th>Comic Id</th>
+                                        <th>Titulo</th>
 										<th>Event Id</th>
+										<th>Evento</th>
 
                                         <th></th>
                                     </tr>
@@ -48,12 +50,14 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>{{ $comicsEvent->comic_id }}</td>
+                                            <td>{{ $comicsEvent->comic->titulo }}</td>
 											<td>{{ $comicsEvent->event_id }}</td>
+											<td>{{ $comicsEvent->event->titulo }}</td>
 
                                             <td>
-                                                <form action="{{ route('comics-events.destroy',$comicsEvent->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('comics-events.show',$comicsEvent->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-events.edit',$comicsEvent->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('comics-events.borra',['id' => $comicsEvent->comic_id, 'eventid' => $comicsEvent->event_id]) }}" method="POST">
+                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('comics-events.show',$comicsEvent->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-events.edit',$comicsEvent->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> --}}
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>

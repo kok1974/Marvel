@@ -57,10 +57,8 @@ class ComicsUserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($comicsUser)
     {
-        $comicsUser = ComicsUser::find($id);
-
         return view('comics-user.show', compact('comicsUser'));
     }
 

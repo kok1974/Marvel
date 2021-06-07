@@ -16,7 +16,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property $created_at
  * @property $updated_at
  *
- * @property ComicsCharacter[] $comicsCharacters
+ * @property Comics[] $comics
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -42,11 +42,11 @@ class Character extends Model
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsCharacters()
+    public function comics()
     {
-        return $this->hasMany('App\ComicsCharacter', 'personaje_id', 'personaje_id');
+        return $this->belongsToMany(User::class, 'comics_characters','character_id','comic_id');
     }
 
 

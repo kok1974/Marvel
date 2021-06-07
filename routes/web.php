@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comic;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +21,27 @@ Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 
 Auth::routes();
+
+Route::delete('admin/comicusers/{id}/{userid}', function ($id,$userid) {
+    $comics = Comic::find($id);
+    $comics->users()->detach($userid);
+
+    return redirect()->route('comics-users.index')->with('success', 'ComicsUser deleted successfully');
+})->name('comics-users.borra');
+
+Route::delete('admin/comiccharacter/{id}/{characterid}', function ($id,$characterid) {
+    $comics = Comic::find($id);
+    $comics->characters()->detach($characterid);
+
+    return redirect()->route('comics-characters.index')->with('success', 'ComicsCharacter deleted successfully');
+})->name('comics-characters.borra');
+
+Route::delete('admin/comicevents/{id}/{eventid}', function ($id,$eventid) {
+    $comics = Comic::find($id);
+    $comics->events()->detach($eventid);
+
+    return redirect()->route('comics-events.index')->with('success', 'ComicsEvents deleted successfully');
+})->name('comics-events.borra');
 
 Route::resource('admin/characters', App\Http\Controllers\CharacterController::class);
 Route::resource('admin/comics', App\Http\Controllers\ComicController::class);

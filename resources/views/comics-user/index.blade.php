@@ -36,7 +36,9 @@
                                     <tr>
                                         <th>No</th>
 										<th>Comic Id</th>
-										<th>User Id</th>
+                                        <th>Comic</th>
+										<th>Usuario</th>
+										<th>Usuario Id</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -45,12 +47,14 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 											<td>{{ $comicsUser->comic_id }}</td>
+                                            <td>{{ $comicsUser->comic->titulo }}</td>
 											<td>{{ $comicsUser->user_id }}</td>
+                                            <td>{{ $comicsUser->user->name }}</td>
 
                                             <td>
-                                                <form action="{{ route('comics-users.destroy',$comicsUser->comic_id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('comics-users.show',$comicsUser->comic_id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-users.edit',$comicsUser->comic_id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('comics-users.borra',['id' => $comicsUser->comic_id, 'userid' => $comicsUser->user_id]) }}" method="POST">
+                                                {{-- <a class="btn btn-sm btn-primary " href="{{ route('comics-users.show',$comicsUser) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-users.edit',$comicsUser) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> --}}
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>

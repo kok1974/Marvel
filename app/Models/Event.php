@@ -17,7 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property $created_at
  * @property $updated_at
  *
- * @property ComicsEvent[] $comicsEvents
+ * @property Comics[] $comics
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -42,11 +42,11 @@ class Event extends Model
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsEvents()
+    public function comics()
     {
-        return $this->hasMany('App\ComicsEvent', 'event_id', 'event_id');
+        return $this->belongsToMany(User::class, 'comics_events','event_id','comic_id');
     }
 
 

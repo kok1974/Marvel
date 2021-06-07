@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * Class ComicsCharacter
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class ComicsCharacter extends Model
+class ComicsCharacter extends Pivot
 {
     use HasFactory;
 
@@ -42,18 +43,18 @@ class ComicsCharacter extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-/*     public function character()
+    public function character()
     {
-        return $this->hasOne('App\Character', 'personaje_id', 'personaje_id');
-    } */
+        return $this->hasOne(Character::class, 'personaje_id', 'personaje_id');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-/*     public function comic()
+    public function comic()
     {
-        return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
-    } */
+        return $this->hasOne(Comic::class, 'comic_id', 'comic_id');
+    }
 
 
 }

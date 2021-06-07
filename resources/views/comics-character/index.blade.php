@@ -37,7 +37,9 @@
                                         <th>No</th>
 
 										<th>Comic Id</th>
+                                        <th>Comic</th>
 										<th>Personaje Id</th>
+										<th>Personaje</th>
 
                                         <th></th>
                                     </tr>
@@ -48,12 +50,14 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>{{ $comicsCharacter->comic_id }}</td>
+                                            <td>{{ $comicsCharacter->comic->titulo }}</td>
 											<td>{{ $comicsCharacter->personaje_id }}</td>
+											<td>{{ $comicsCharacter->character->nombre }}</td>
 
                                             <td>
-                                                <form action="{{ route('comics-characters.destroy',$comicsCharacter->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('comics-characters.show',$comicsCharacter->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-characters.edit',$comicsCharacter->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                <form action="{{ route('comics-characters.borra',['id' => $comicsCharacter->comic_id, 'characterid' => $comicsCharacter->personaje_id]) }}" method="POST">
+                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('comics-characters.show',$comicsCharacter->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-characters.edit',$comicsCharacter->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a> --}}
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>

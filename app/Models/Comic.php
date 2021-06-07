@@ -23,9 +23,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property $created_at
  * @property $updated_at
  *
- * @property ComicsCharacter $comicsCharacter
- * @property ComicsEvent $comicsEvent
- * @property ComicsUser $comicsUser
+ * @property Character[] $characters
+ * @property Event[] $events
+ * @property User[] $users
  * @property Creator $writer
  * @property Creator $coverArtist
  * @property Creator $penciller
@@ -62,27 +62,27 @@ class Comic extends Model
 
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsCharacter()
+    public function characters()
     {
-        return $this->hasOne('App\ComicsCharacter', 'comic_id', 'comic_id');
+        return $this->belongsToMany(User::class, 'comics_characters','comic_id','character_id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsEvent()
+    public function events()
     {
-        return $this->hasOne('App\ComicsEvent', 'comic_id', 'comic_id');
+        return $this->belongsToMany(User::class, 'comics_events','comic_id','event_id');
     }
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsUser()
+    public function users()
     {
-        return $this->hasOne('App\ComicsUser', 'comic_id', 'comic_id');
+        return $this->belongsToMany(User::class, 'comics_users','comic_id','user_id');
     }
 
     /**
@@ -90,7 +90,7 @@ class Comic extends Model
      */
     public function writer()
     {
-        return $this->hasOne('App\Creator', 'creator_id', 'guionista_id');
+        return $this->belongsTo(Creator::class, 'creator_id', 'guionista_id');
     }
 
     /**
@@ -98,7 +98,7 @@ class Comic extends Model
      */
     public function coverArtist()
     {
-        return $this->hasOne('App\Creator', 'creator_id', 'artistaPortada_id');
+        return $this->belongsTo(Creator::class, 'creator_id', 'artistaPortada_id');
     }
 
     /**
@@ -106,7 +106,7 @@ class Comic extends Model
      */
     public function penciller()
     {
-        return $this->hasOne('App\Creator', 'creator_id', 'dibujante_id');
+        return $this->belongsTo(Creator::class, 'creator_id', 'dibujante_id');
     }
 
     /**
@@ -114,7 +114,7 @@ class Comic extends Model
      */
     public function series()
     {
-        return $this->hasOne('App\Series', 'serie_id', 'serie_id');
+        return $this->hasOne(Series::class, 'serie_id', 'serie_id');
     }
 
     /**
@@ -122,7 +122,7 @@ class Comic extends Model
      */
     public function variantsCover()
     {
-        return $this->hasOne('App\VariantsCover', 'original_id', 'comic_id');
+        return $this->hasOne(VariantsCover::class, 'original_id', 'comic_id');
     }
 
     /**
@@ -130,7 +130,7 @@ class Comic extends Model
      */
     public function variantsCovers()
     {
-        return $this->hasMany('App\VariantsCover', 'variante_id', 'comic_id');
+        return $this->hasMany(VariantsCover::class, 'variante_id', 'comic_id');
     }
 
 }

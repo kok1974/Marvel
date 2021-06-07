@@ -48,7 +48,7 @@ class Creator extends Model
      */
     public function comicsWriter()
     {
-        return $this->hasMany('App\Comic', 'guionista_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'guionista_id', 'creator_id');
     }
 
     /**
@@ -56,7 +56,7 @@ class Creator extends Model
      */
     public function comicsPenciller()
     {
-        return $this->hasMany('App\Comic', 'artistaPortada_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'artistaPortada_id', 'creator_id');
     }
 
     /**
@@ -64,7 +64,7 @@ class Creator extends Model
      */
     public function comicsCoverArtist()
     {
-        return $this->hasMany('App\Comic', 'dibujante_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'dibujante_id', 'creator_id');
     }
 
 
