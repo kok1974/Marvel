@@ -1,11 +1,11 @@
-@extends('layouts.app3')
+@extends('layouts.app4')
 
 @section('template_title')
-    Update Comics Character
+    Editar Comics Character
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="">
             <div class="col-md-12">
 
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Comics Character</span>
+                        <span class="card-title">Editar Comics Character</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('comics-characters.update', $comicsCharacter->id) }}"  role="form" enctype="multipart/form-data">

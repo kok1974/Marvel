@@ -42,18 +42,18 @@ class ComicsCharacter extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function character()
+/*     public function character()
     {
         return $this->hasOne('App\Character', 'personaje_id', 'personaje_id');
-    }
+    } */
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function comic()
+/*     public function comic()
     {
         return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
-    }
+    } */
 
 
 }

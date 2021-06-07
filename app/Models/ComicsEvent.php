@@ -42,18 +42,18 @@ class ComicsEvent extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function comic()
+/*     public function comic()
     {
         return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
     }
-
+ */
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function event()
+/*     public function event()
     {
         return $this->hasOne('App\Event', 'event_id', 'event_id');
     }
-
+ */
 
 }

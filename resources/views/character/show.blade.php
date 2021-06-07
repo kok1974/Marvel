@@ -1,17 +1,17 @@
 @extends('layouts.app3')
 
 @section('template_title')
-    {{ $character->name ?? 'Show Character' }}
+    Mostrar Personaje
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Character</span>
+                            <span class="card-title">Mostrar Personaje</span>
                         </div>
                         <div class="float-right">
                             <a class="btn btn-primary" href="{{ route('characters.index') }}"> Back</a>

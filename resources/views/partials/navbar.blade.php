@@ -31,8 +31,8 @@
                     <a class="dropdown-item text-white" href="{{ url('admin/creators') }}">Creadores</a>
                     <a class="dropdown-item text-white" href="{{ url('admin/events') }}">Eventos</a>
                     <a class="dropdown-item text-white" href="{{ url('admin/series') }}">Series</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/comics') }}">comics</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/users') }}">usuarios</a>
+                    <a class="dropdown-item text-white" href="{{ url('admin/comics') }}">Comics</a>
+                    <a class="dropdown-item text-white" href="{{ url('admin/users') }}">Usuarios</a>
                     <a class="dropdown-item text-white" href="{{ url('admin/comics-users') }}">Comics - Usuarios</a>
                     <a class="dropdown-item text-white" href="{{ url('admin/comics-characters') }}">Comics - Personajes</a>
                     <a class="dropdown-item text-white" href="{{ url('admin/comics-events') }}">Comics - Eventos</a>

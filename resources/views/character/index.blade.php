@@ -1,11 +1,11 @@
 @extends('layouts.app2')
 
 @section('template_title')
-    Character
+Personaje
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid admnistracion">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Character') }}
+                                {{ __('Personaje') }}
                             </span>
 
                              <div class="float-right">
@@ -33,37 +33,35 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
-
-										<th>Personaje Id</th>
+										<th>Id</th>
 										<th>Nombre</th>
 										<th>Descripcion</th>
 										<th>Imagen</th>
 										<th>Mime</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($characters ?? '' as $character)
-                                        <tr>
+                                    @foreach ($characters as $character)
+                                        <tr class="text-justify">
                                             <td>{{ ++$i }}</td>
-
 											<td>{{ $character->personaje_id }}</td>
 											<td>{{ $character->nombre }}</td>
 											<td>{{ $character->descripcion }}</td>
 											<td>{{ $character->imagen }}</td>
 											<td>{{ $character->mime }}</td>
-
                                             <td>
-                                                <form action="{{ route('characters.destroy',$character->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('characters.show',$character->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('characters.edit',$character->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <div class="btn-group-vertical btn-group-sm" role="group" aria-label="agrupando">
+                                                <form action="{{ route('characters.destroy',$character->personaje_id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('characters.show',$character->personaje_id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('characters.edit',$character->personaje_id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -72,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $characters ?? ''->links() !!}
+                <div class="mx-auto" style="width: 20%"> {!! $characters->links() !!} </div>
             </div>
         </div>
     </div>

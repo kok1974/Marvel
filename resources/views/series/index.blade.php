@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid admnistracion">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('series.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -33,37 +33,35 @@
                         <div class="table-responsive">
                             <table class="table table-striped table-hover">
                                 <thead class="thead">
-                                    <tr>
+                                    <tr class="text-center">
                                         <th>No</th>
-
-										<th>Serie Id</th>
+										<th>Id</th>
 										<th>Titulo</th>
 										<th>Descripcion</th>
 										<th>Imagen</th>
 										<th>Mime</th>
-
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($series as $series)
-                                        <tr>
+                                    @foreach ($series as $serie)
+                                        <tr class="text-justify">
                                             <td>{{ ++$i }}</td>
-
-											<td>{{ $series->serie_id }}</td>
-											<td>{{ $series->titulo }}</td>
-											<td>{{ $series->descripcion }}</td>
-											<td>{{ $series->imagen }}</td>
-											<td>{{ $series->mime }}</td>
-
-                                            <td>
-                                                <form action="{{ route('series.destroy',$series->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('series.show',$series->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('series.edit',$series->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+											<td >{{ $serie->serie_id }}</td>
+											<td>{{ $serie->titulo }}</td>
+											<td >{{ $serie->descripcion }}</td>
+											<td >{{ $serie->imagen }}</td>
+											<td >{{ $serie->mime }}</td>
+                                            <td >
+                                                <div class="btn-group-vertical btn-group-sm" role="group" aria-label="agrupando">
+                                                <form action="{{ route('series.destroy',$serie->serie_id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('series.show',$serie->serie_id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('series.edit',$serie->serie_id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
@@ -72,7 +70,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $series->links() !!}
+                <div class="mx-auto" style="width: 20%"> {!! $series->links() !!} </div>
             </div>
         </div>
     </div>

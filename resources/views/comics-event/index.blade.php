@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid admnistracion">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -18,7 +18,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('comics-events.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -52,11 +52,11 @@
 
                                             <td>
                                                 <form action="{{ route('comics-events.destroy',$comicsEvent->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('comics-events.show',$comicsEvent->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-events.edit',$comicsEvent->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('comics-events.show',$comicsEvent->id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('comics-events.edit',$comicsEvent->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -66,7 +66,7 @@
                         </div>
                     </div>
                 </div>
-                {!! $comicsEvents->links() !!}
+                <div class="mx-auto" style="width: 20%"> {!! $comicsEvents->links() !!} </div>
             </div>
         </div>
     </div>

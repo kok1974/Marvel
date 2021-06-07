@@ -11,8 +11,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property $creator_id
  * @property $nombre
  * @property $apellidos
- * @property $imagen
- * @property $mime
  * @property $tipo
  * @property $created_at
  * @property $updated_at
@@ -42,7 +40,7 @@ class Creator extends Model
      *
      * @var array
      */
-    protected $fillable = ['creator_id','nombre','apellidos','imagen','mime','tipo'];
+    protected $fillable = ['creator_id','nombre','apellidos','tipo'];
 
 
     /**

@@ -82,7 +82,13 @@ li.dropdown > a:hover:after {
     font-size: 2rem;
 }
 
-/* */
+/* Altura minima del body en la administración */
+
+.admnistracion {
+    min-height: 68.5vh;
+}
+
+/* Fondo y altura minima del body en la autentificación */
 
 .autenficando{
     align-items: center;

@@ -1,7 +1,7 @@
 @extends('layouts.app3')
 
 @section('template_title')
-    {{ $comicsCharacter->name ?? 'Show Comics Character' }}
+    Mostrar Comics Character
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Comics Character</span>
+                            <span class="card-title">Mostrar Comics Character</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comics-characters.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('comics-characters.index') }}"> Volver</a>
                         </div>
                     </div>
 

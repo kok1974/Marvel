@@ -29,8 +29,6 @@ class Event extends Model
     static $rules = [
 		'event_id' => 'required',
 		'titulo' => 'required',
-		'inicio' => 'required',
-		'fin' => 'required',
     ];
 
     protected $perPage = 20;
