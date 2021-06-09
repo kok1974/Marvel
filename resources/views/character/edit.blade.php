@@ -1,11 +1,11 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    Update Character
+    Editar Personaje
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="">
             <div class="col-md-12">
 
@@ -13,10 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Character</span>
+                        <span class="card-title">Editar Personaje</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('characters.update', $character->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('characters.update', $character->personaje_id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

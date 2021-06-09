@@ -1,11 +1,11 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('template_title')
-    User
+    Ususuario
 @endsection
 
 @section('content')
-    <div class="container-fluid">
+    <div class="container-fluid admnistracion">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
@@ -13,12 +13,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('User') }}
+                                {{ __('Usuario') }}
                             </span>
 
                              <div class="float-right">
-                               {{-- <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }} --}}
+                                <a href="{{ route('users.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                  {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
                         </div>
@@ -36,10 +36,10 @@
                                     <tr>
                                         <th>No</th>
 
-										<th>User Id</th>
-										<th>Name</th>
+										<th>Id</th>
+										<th>Nombre</th>
 										<th>Email</th>
-
+                                        <th>Rol</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -51,16 +51,17 @@
 											<td>{{ $user->user_id }}</td>
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
+                                            <td>{{ $user->rol }}</td>
 
-     {{--                                       <td>
-                                                <form action="{{ route('users.destroy',$user->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                           <td>
+                                                <form action="{{ route('users.destroy',$user->user_id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('users.show',$user->user_id) }}"><i class="fa fa-fw fa-eye"></i> Mostrar</a>
+                                                    <a class="btn btn-sm btn-success" href="{{ route('users.edit',$user->user_id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Borrar</button>
                                                 </form>
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>

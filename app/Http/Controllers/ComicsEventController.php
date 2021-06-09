@@ -48,7 +48,7 @@ class ComicsEventController extends Controller
         $comicsEvent = ComicsEvent::create($request->all());
 
         return redirect()->route('comics-events.index')
-            ->with('success', 'ComicsEvent created successfully.');
+            ->with('success', 'ComicsEvent creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class ComicsEventController extends Controller
         $comicsEvent->update($request->all());
 
         return redirect()->route('comics-events.index')
-            ->with('success', 'ComicsEvent updated successfully');
+            ->with('success', 'ComicsEvent editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class ComicsEventController extends Controller
         $comicsEvent = ComicsEvent::find($id)->delete();
 
         return redirect()->route('comics-events.index')
-            ->with('success', 'ComicsEvent deleted successfully');
+            ->with('success', 'ComicsEvent borrado con éxito');
     }
 }

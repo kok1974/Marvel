@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('serie_id') }}
             {{ Form::text('serie_id', $series->serie_id, ['class' => 'form-control' . ($errors->has('serie_id') ? ' is-invalid' : ''), 'placeholder' => 'Serie Id']) }}
@@ -29,6 +29,6 @@
 
     </div>
     <div class="box-footer mt20">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Enviar</button>
     </div>
 </div>

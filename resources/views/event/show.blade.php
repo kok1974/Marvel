@@ -1,20 +1,20 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ $event->name ?? 'Show Event' }}
+    Mostrar Evento
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Event</span>
+                            <span class="card-title">Mostrar Evento</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('events.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('events.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -31,6 +31,10 @@
                         <div class="form-group">
                             <strong>Descripcion:</strong>
                             {{ $event->descripcion }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Imagen:</strong>
+                            {{ $event->imagen }}
                         </div>
                         <div class="form-group">
                             <strong>Inicio:</strong>

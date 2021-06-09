@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Comic;
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,12 +22,34 @@ Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Auth::routes();
 
-Route::resource('admin/characters', App\Http\Controllers\CharacterController::class);
-Route::resource('admin/comics', App\Http\Controllers\ComicController::class);
-Route::resource('admin/comics-characters', App\Http\Controllers\ComicsCharacterController::class);
-Route::resource('admin/comics-events', App\Http\Controllers\ComicsEventController::class);
-Route::resource('admin/comics-users', App\Http\Controllers\ComicsUserController::class);
-Route::resource('admin/creators', App\Http\Controllers\CreatorController::class);
-Route::resource('admin/events', App\Http\Controllers\EventController::class);
-Route::resource('admin/series', App\Http\Controllers\SeriesController::class);
-Route::resource('admin/users', App\Http\Controllers\UserController::class);
+// abierta para la app
+Route::delete('admin/comicusers/{id}/{userid}', function ($id,$userid) {
+    $comics = Comic::find($id);
+    $comics->users()->detach($userid);
+
+    return redirect()->route('comics-users.index')->with('success', 'ComicsUser deleted successfully');
+})->name('comics-users.borra');
+
+Route::delete('admin/comiccharacter/{id}/{characterid}', function ($id,$characterid) {
+    $comics = Comic::find($id);
+    $comics->characters()->detach($characterid);
+
+    return redirect()->route('comics-characters.index')->with('success', 'ComicsCharacter deleted successfully');
+})->name('comics-characters.borra')->middleware('administracion');
+
+Route::delete('admin/comicevents/{id}/{eventid}', function ($id,$eventid) {
+    $comics = Comic::find($id);
+    $comics->events()->detach($eventid);
+
+    return redirect()->route('comics-events.index')->with('success', 'ComicsEvents deleted successfully');
+})->name('comics-events.borra')->middleware('administracion');
+
+Route::resource('admin/characters', App\Http\Controllers\CharacterController::class)->middleware('administracion');
+Route::resource('admin/comics', App\Http\Controllers\ComicController::class)->middleware('administracion');
+Route::resource('admin/comics-characters', App\Http\Controllers\ComicsCharacterController::class)->middleware('administracion');
+Route::resource('admin/comics-events', App\Http\Controllers\ComicsEventController::class)->middleware('administracion');
+Route::resource('admin/comics-users', App\Http\Controllers\ComicsUserController::class)->middleware('administracion');
+Route::resource('admin/creators', App\Http\Controllers\CreatorController::class)->middleware('administracion');
+Route::resource('admin/events', App\Http\Controllers\EventController::class)->middleware('administracion');
+Route::resource('admin/series', App\Http\Controllers\SeriesController::class)->middleware('administracion');
+Route::resource('admin/users', App\Http\Controllers\UserController::class)->middleware('administracion');

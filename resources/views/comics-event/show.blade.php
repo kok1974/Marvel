@@ -1,20 +1,20 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ $comicsEvent->name ?? 'Show Comics Event' }}
+    Mostrar Comics Event
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Comics Event</span>
+                            <span class="card-title">Mostrar Comics Event</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comics-events.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('comics-events.index') }}"> Volver</a>
                         </div>
                     </div>
 

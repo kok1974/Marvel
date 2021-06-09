@@ -1,11 +1,11 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    Create Event
+    Crear Evento
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
 
@@ -13,7 +13,7 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Create Event</span>
+                        <span class="card-title">Crear Evento</span>
                     </div>
                     <div class="card-body">
                         <form method="POST" action="{{ route('events.store') }}"  role="form" enctype="multipart/form-data">

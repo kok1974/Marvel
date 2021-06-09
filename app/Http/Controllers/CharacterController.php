@@ -48,7 +48,7 @@ class CharacterController extends Controller
         $character = Character::create($request->all());
 
         return redirect()->route('characters.index')
-            ->with('success', 'Character created successfully.');
+            ->with('success', 'Personaje creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class CharacterController extends Controller
         $character->update($request->all());
 
         return redirect()->route('characters.index')
-            ->with('success', 'Character updated successfully');
+            ->with('success', 'Personaje editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class CharacterController extends Controller
         $character = Character::find($id)->delete();
 
         return redirect()->route('characters.index')
-            ->with('success', 'Character deleted successfully');
+            ->with('success', 'Personaje borrado con éxito');
     }
 }

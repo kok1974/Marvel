@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property $created_at
  * @property $updated_at
  *
- * @property ComicsUser[] $comicsUsers
+ * @property Comics[] $comics
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
@@ -49,6 +49,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user',
     ];
 
     /**
@@ -61,6 +62,15 @@ class User extends Authenticatable
         'remember_token',
     ];
 
+
+    public function administrador(){
+
+        if($this->rol == 'admin'){
+            return true;
+        }
+        return false;
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -71,10 +81,10 @@ class User extends Authenticatable
     ];
 
     /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      */
-    public function comicsUsers()
+    public function comics()
     {
-        return $this->hasMany('App\ComicsUser', 'user_id', 'user_id');
+        return $this->belongsToMany(Comic::class, 'comics_users','user_id','comic_id');
     }
 }

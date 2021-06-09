@@ -1,11 +1,11 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    Update Creator
+    Editar Creator
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="">
             <div class="col-md-12">
 
@@ -13,10 +13,10 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Update Creator</span>
+                        <span class="card-title">Editar Creator</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('creators.update', $creator->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('creators.update', $creator->creator_id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 

@@ -1,20 +1,20 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ $comic->name ?? 'Show Comic' }}
+   Mostrar Comic
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Comic</span>
+                            <span class="card-title">Mostrar Comic</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comics.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('comics.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -29,15 +29,15 @@
                             {{ $comic->serie_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Titulo:</strong>
+                            <strong>Título:</strong>
                             {{ $comic->titulo }}
                         </div>
                         <div class="form-group">
-                            <strong>Numero:</strong>
+                            <strong>Número:</strong>
                             {{ $comic->numero }}
                         </div>
                         <div class="form-group">
-                            <strong>Descripcion:</strong>
+                            <strong>Descripción:</strong>
                             {{ $comic->descripcion }}
                         </div>
                         <div class="form-group">
@@ -49,7 +49,7 @@
                             {{ $comic->imagen }}
                         </div>
                         <div class="form-group">
-                            <strong>Mime:</strong>
+                            <strong>Extensión:</strong>
                             {{ $comic->mime }}
                         </div>
                         <div class="form-group">
@@ -61,11 +61,11 @@
                             {{ $comic->dibujante_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Artistaportada Id:</strong>
+                            <strong>Portadista Id:</strong>
                             {{ $comic->artistaPortada_id }}
                         </div>
                         <div class="form-group">
-                            <strong>Variantesportada:</strong>
+                            <strong>Variantes portada:</strong>
                             {{ $comic->variantesPortada }}
                         </div>
 

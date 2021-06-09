@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
 /**
  * Class ComicsEvent
@@ -18,7 +19,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @package App
  * @mixin \Illuminate\Database\Eloquent\Builder
  */
-class ComicsEvent extends Model
+class ComicsEvent extends Pivot
 {
     use HasFactory;
 
@@ -44,7 +45,7 @@ class ComicsEvent extends Model
      */
     public function comic()
     {
-        return $this->hasOne('App\Comic', 'comic_id', 'comic_id');
+        return $this->hasOne(Comic::class, 'comic_id', 'comic_id');
     }
 
     /**
@@ -52,7 +53,7 @@ class ComicsEvent extends Model
      */
     public function event()
     {
-        return $this->hasOne('App\Event', 'event_id', 'event_id');
+        return $this->hasOne(Event::class, 'event_id', 'event_id');
     }
 
 

@@ -1,20 +1,20 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ $comicsUser->name ?? 'Show Comics User' }}
+    Mostrar Comics User' }}
 @endsection
 
 @section('content')
-    <section class="content container-fluid">
+    <section class="container-fluid admnistracion">
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Comics User</span>
+                            <span class="card-title">Mostrar Comics User</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('comics-users.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('comics-users.index') }}"> Volver</a>
                         </div>
                     </div>
 

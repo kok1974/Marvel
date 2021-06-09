@@ -1,7 +1,7 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
-    {{ $creator->name ?? 'Show Creator' }}
+    Mostrar Artista
 @endsection
 
 @section('content')
@@ -11,10 +11,10 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Creator</span>
+                            <span class="card-title">Mostrar Artista</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('creators.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('creators.index') }}"> Volver</a>
                         </div>
                     </div>
 
@@ -31,14 +31,6 @@
                         <div class="form-group">
                             <strong>Apellidos:</strong>
                             {{ $creator->apellidos }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Imagen:</strong>
-                            {{ $creator->imagen }}
-                        </div>
-                        <div class="form-group">
-                            <strong>Mime:</strong>
-                            {{ $creator->mime }}
                         </div>
                         <div class="form-group">
                             <strong>Tipo:</strong>

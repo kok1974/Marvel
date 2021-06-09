@@ -48,7 +48,7 @@ class ComicsUserController extends Controller
         $comicsUser = ComicsUser::create($request->all());
 
         return redirect()->route('comics-users.index')
-            ->with('success', 'ComicsUser created successfully.');
+            ->with('success', 'ComicsUser creado con éxito');
     }
 
     /**
@@ -57,10 +57,8 @@ class ComicsUserController extends Controller
      * @param  int $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($comicsUser)
     {
-        $comicsUser = ComicsUser::find($id);
-
         return view('comics-user.show', compact('comicsUser'));
     }
 
@@ -91,7 +89,7 @@ class ComicsUserController extends Controller
         $comicsUser->update($request->all());
 
         return redirect()->route('comics-users.index')
-            ->with('success', 'ComicsUser updated successfully');
+            ->with('success', 'ComicsUser editado con éxito');
     }
 
     /**
@@ -104,6 +102,6 @@ class ComicsUserController extends Controller
         $comicsUser = ComicsUser::find($id)->delete();
 
         return redirect()->route('comics-users.index')
-            ->with('success', 'ComicsUser deleted successfully');
+            ->with('success', 'ComicsUser borrado con éxito');
     }
 }

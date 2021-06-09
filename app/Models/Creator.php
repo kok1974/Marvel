@@ -11,8 +11,6 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property $creator_id
  * @property $nombre
  * @property $apellidos
- * @property $imagen
- * @property $mime
  * @property $tipo
  * @property $created_at
  * @property $updated_at
@@ -42,7 +40,7 @@ class Creator extends Model
      *
      * @var array
      */
-    protected $fillable = ['creator_id','nombre','apellidos','imagen','mime','tipo'];
+    protected $fillable = ['creator_id','nombre','apellidos','tipo'];
 
 
     /**
@@ -50,7 +48,7 @@ class Creator extends Model
      */
     public function comicsWriter()
     {
-        return $this->hasMany('App\Comic', 'guionista_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'guionista_id', 'creator_id');
     }
 
     /**
@@ -58,7 +56,7 @@ class Creator extends Model
      */
     public function comicsPenciller()
     {
-        return $this->hasMany('App\Comic', 'artistaPortada_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'artistaPortada_id', 'creator_id');
     }
 
     /**
@@ -66,7 +64,7 @@ class Creator extends Model
      */
     public function comicsCoverArtist()
     {
-        return $this->hasMany('App\Comic', 'dibujante_id', 'creator_id');
+        return $this->hasMany(Comic::class, 'dibujante_id', 'creator_id');
     }
 
 
