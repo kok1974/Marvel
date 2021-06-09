@@ -48,7 +48,7 @@ class CreatorController extends Controller
         $creator = Creator::create($request->all());
 
         return redirect()->route('creators.index')
-            ->with('success', 'Creator created successfully.');
+            ->with('success', 'Creator creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class CreatorController extends Controller
         $creator->update($request->all());
 
         return redirect()->route('creators.index')
-            ->with('success', 'Creator updated successfully');
+            ->with('success', 'Creator editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class CreatorController extends Controller
         $creator = Creator::find($id)->delete();
 
         return redirect()->route('creators.index')
-            ->with('success', 'Creator deleted successfully');
+            ->with('success', 'Creator borrado con éxito');
     }
 }

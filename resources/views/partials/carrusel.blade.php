@@ -11,21 +11,21 @@
             <!-- The slideshow -->
             <div class="carousel-inner" >
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="imagenes/1.jpg" alt="**">
+                <img class="d-block img-fluid" src="{{ asset('imagenes/1.jpg') }}" alt="**">
                 <div class="carousel-caption-mio text-white">
                     <H2>Lorem o no Lorem</H2>
                     <p>Amatomaa a gramenawer a gramenawer fistro de la pradera jarl diodeno.</p>
                   </div>
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="imagenes/2.jpg" alt="**">
+                <img class="d-block img-fluid" src="{{ asset('imagenes/2.jpg') }}" alt="**">
                 <div class="carousel-caption-mio text-white">
                     <H2>Menos Loren</H2>
                     <p>Lorem fistrum benemeritaar te va a hasé pupitaa. </p>
                   </div>
               </div>
               <div class="carousel-item" >
-                <img class="d-block img-fluid" src="imagenes/3.jpg" alt="**">
+                <img class="d-block img-fluid" src="{{ asset('imagenes/3.jpg') }}" alt="**">
                 <div class="carousel-caption-mio text-white">
                     <H2>Menos Loren</H2>
                     <p>Lorem fistrum benemeritaar te va a hasé pupitaa qué dise.</p>

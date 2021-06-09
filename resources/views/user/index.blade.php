@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('template_title')
     Ususuario
@@ -39,7 +39,7 @@
 										<th>Id</th>
 										<th>Nombre</th>
 										<th>Email</th>
-
+                                        <th>Rol</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -51,6 +51,7 @@
 											<td>{{ $user->user_id }}</td>
 											<td>{{ $user->name }}</td>
 											<td>{{ $user->email }}</td>
+                                            <td>{{ $user->rol }}</td>
 
                                            <td>
                                                 <form action="{{ route('users.destroy',$user->user_id) }}" method="POST">

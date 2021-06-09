@@ -48,7 +48,7 @@ class ComicController extends Controller
         $comic = Comic::create($request->all());
 
         return redirect()->route('comics.index')
-            ->with('success', 'Comic created successfully.');
+            ->with('success', 'Comic creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class ComicController extends Controller
         $comic->update($request->all());
 
         return redirect()->route('comics.index')
-            ->with('success', 'Comic updated successfully');
+            ->with('success', 'Comic editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class ComicController extends Controller
         $comic = Comic::find($id)->delete();
 
         return redirect()->route('comics.index')
-            ->with('success', 'Comic deleted successfully');
+            ->with('success', 'Comic borrado con éxito');
     }
 }

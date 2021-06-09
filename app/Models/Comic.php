@@ -60,6 +60,13 @@ class Comic extends Model
      */
     protected $fillable = ['comic_id','serie_id','titulo','numero','descripcion','formato','imagen','mime','guionista_id','dibujante_id','artistaPortada_id','variantesPortada'];
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function coleccion()
+    {
+        return $this->hasMany(ComicsUser::class, 'comics_users','comic_id','comic_id');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany

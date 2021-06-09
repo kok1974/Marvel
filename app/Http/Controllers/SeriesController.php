@@ -48,7 +48,7 @@ class SeriesController extends Controller
         $series = Series::create($request->all());
 
         return redirect()->route('series.index')
-            ->with('success', 'Series created successfully.');
+            ->with('success', 'Series creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class SeriesController extends Controller
         $series->update($request->all());
 
         return redirect()->route('series.index')
-            ->with('success', 'Series updated successfully');
+            ->with('success', 'Series editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class SeriesController extends Controller
         $series = Series::find($id)->delete();
 
         return redirect()->route('series.index')
-            ->with('success', 'Series deleted successfully');
+            ->with('success', 'Series borrado con éxito');
     }
 }

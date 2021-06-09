@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
     Mostrar Ususuario
@@ -31,6 +31,10 @@
                         <div class="form-group">
                             <strong>Email:</strong>
                             {{ $user->email }}
+                        </div>
+                        <div class="form-group">
+                            <strong>Rol:</strong>
+                            {{ $user->rol }}
                         </div>
 
                     </div>

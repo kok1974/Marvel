@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app')
 
 @section('template_title')
 Personaje
@@ -18,7 +18,7 @@ Personaje
 
                              <div class="float-right">
                                 <a href="{{ route('characters.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nuevo') }}
                                 </a>
                               </div>
                         </div>

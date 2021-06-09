@@ -1,4 +1,4 @@
-@extends('layouts.app3')
+@extends('layouts.app')
 
 @section('template_title')
     Mostrar Personaje
@@ -14,7 +14,7 @@
                             <span class="card-title">Mostrar Personaje</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('characters.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('characters.index') }}"> Volver</a>
                         </div>
                     </div>
 

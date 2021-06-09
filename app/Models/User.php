@@ -49,6 +49,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'user',
     ];
 
     /**
@@ -60,6 +61,15 @@ class User extends Authenticatable
         'password',
         'remember_token',
     ];
+
+
+    public function administrador(){
+
+        if($this->rol == 'admin'){
+            return true;
+        }
+        return false;
+    }
 
     /**
      * The attributes that should be cast to native types.

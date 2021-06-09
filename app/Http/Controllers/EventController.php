@@ -48,7 +48,7 @@ class EventController extends Controller
         $event = Event::create($request->all());
 
         return redirect()->route('events.index')
-            ->with('success', 'Event created successfully.');
+            ->with('success', 'Event creado con éxito');
     }
 
     /**
@@ -91,7 +91,7 @@ class EventController extends Controller
         $event->update($request->all());
 
         return redirect()->route('events.index')
-            ->with('success', 'Event updated successfully');
+            ->with('success', 'Event editado con éxito');
     }
 
     /**
@@ -104,6 +104,6 @@ class EventController extends Controller
         $event = Event::find($id)->delete();
 
         return redirect()->route('events.index')
-            ->with('success', 'Event deleted successfully');
+            ->with('success', 'Event borrado con éxito');
     }
 }
