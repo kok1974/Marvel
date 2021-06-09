@@ -24,22 +24,23 @@
                 <a class="nav-link text-white" href="#coleccion">Colección</a>
             </li>
                 @if (Auth::check())
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle text-white" href="#administracion">Administración</a>
-                <div class="dropdown-menu color-drop" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white" href="{{ url('admin/characters') }}">Personajes</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/creators') }}">Creadores</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/events') }}">Eventos</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/series') }}">Series</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/comics') }}">Comics</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/users') }}">Usuarios</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/comics-users') }}">Comics - Usuarios</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/comics-characters') }}">Comics - Personajes</a>
-                    <a class="dropdown-item text-white" href="{{ url('admin/comics-events') }}">Comics - Eventos</a>
-                </div>
-            </li>
-            @endif
+                    @if (Auth::user()->administrador())
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle text-white" href="#administracion">Administración</a>
+                            <div class="dropdown-menu color-drop" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item text-white" href="{{ url('admin/characters') }}">Personajes</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/creators') }}">Creadores</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/events') }}">Eventos</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/series') }}">Series</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/comics') }}">Comics</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/users') }}">Usuarios</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/comics-users') }}">Comics - Usuarios</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/comics-characters') }}">Comics - Personajes</a>
+                                <a class="dropdown-item text-white" href="{{ url('admin/comics-events') }}">Comics - Eventos</a>
+                            </div>
+                        </li>
+                        @endif
+                        @endif
         </ul>
 
         <!-- Left Side Of Navbar -->
