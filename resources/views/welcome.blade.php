@@ -11,14 +11,19 @@
                             <h2>Novedades</h2>
                         </div>
 
-                        <div class="row justify-content-center">
+                        <div class="row pt-5">
                             @foreach ($novedades as $comic)
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2">
-                                <img class="img img-fluid" src="{{ $comic->imagen.'/portrait_uncanny.'.$comic->mime}}">
-                            </div>
+                                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
+                                    <div class="pb-3">
+                                        <a href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">
+                                            <img class="img img-fluid centrandoImagen mb-3" src="{{ $comic->imagen.'/portrait_incredible.'.$comic->mime}}" alt="{{$comic->titulo}}">
+                                         </a>
+                                    </div>
+                                    <div class="text-center"><h6><a class="colorOficial" href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">{{$comic->titulo}}</a></h6></div>
+                                </div>
                             @endforeach
                         </div>
-                    </div>
+
                 </section>
                 <section>
                     <div class="container mt-5 justify-content-center">
@@ -26,7 +31,8 @@
                         <H2>Más buscados</H2>
 
                         <div class="row justify-content-center">
-                                      {{--          @isset($busquedas)
+
+                            {{--          @isset($busquedas)
                         // $busquedas is defined and is not null...
 
                     @endisset
@@ -42,9 +48,6 @@
      {{--@foreach ($comicsid as $id)
         {{$id}}
         @endforeach--}}
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2" style="height: 250px; width: 100%; background-color: green">
-
-                            </div>
 
                         </div>
                     </div>

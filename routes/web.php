@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ComictecaController;
 use App\Models\Comic;
 use App\Models\User;
 
@@ -53,3 +54,6 @@ Route::resource('admin/creators', App\Http\Controllers\CreatorController::class)
 Route::resource('admin/events', App\Http\Controllers\EventController::class)->middleware('administracion');
 Route::resource('admin/series', App\Http\Controllers\SeriesController::class)->middleware('administracion');
 Route::resource('admin/users', App\Http\Controllers\UserController::class)->middleware('administracion');
+
+Route::get('comiteca/autores', [ComictecaController::class ,'autores']);
+Route::get('comiteca/autor/{id}', [ComictecaController::class ,'autor']);

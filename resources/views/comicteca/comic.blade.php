@@ -6,8 +6,8 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-center pb-1">Autores</h2>
-                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> siempre hubo, hay y habrá grandes autores: guionistas, dibujantes, entintadores, "coloristas", editores.
+                    <h2 class="text-center pb-1">Artistas</h2>
+                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> siempre hay grandes autores: Guionistas, dibujantes, entintadores, "coloristas", editores.
                             John Romita Jr., Stan Lee, Frank Miller y un largo etcétera.  Si buscas conocer más de sus obras aquí podrás encontrarla. Encuentra los comics en los que han participado.</p>
                 </div>
 
@@ -43,7 +43,7 @@
                                     @foreach ($autores as $autor)
                                         @if (str_starts_with($autor->nombre, $letra))
                                             <div class="col-12 col-md-6 pb-3">
-                                                <a href="{{ url('comiteca/autor/'.$autor->creator_id ) }}">{{$autor->nombre.' '.$autor->apellidos}}</a>
+                                                <a href="{{ url('comiteca/autores'.$autor->creator_id ) }}">{{$autor->nombre.' '.$autor->apellidos}}</a>
                                             </div>
                                         @endif
                                     @endforeach

@@ -17,7 +17,7 @@
                     <a class="dropdown-item text-white colorhover" href="#">Por series</a>
                     <a class="dropdown-item text-white" href="#">Por personajes</a>
                     <a class="dropdown-item text-white" href="#">Por eventos</a>
-                    <a class="dropdown-item text-white" href="#">Por autor</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/autores') }}">Por autor</a>
                 </div>
             </li>
             <li class="nav-item">

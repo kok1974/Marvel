@@ -98,3 +98,65 @@ li.dropdown > a:hover:after {
     background-attachment: fixed;
     background-size: cover;
 }
+
+/* Tabs */
+
+.ui-widget {
+    font-family: 'Roboto', sans-serif;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #003eff;
+    background: #7579f3;
+    color: #ffffff;
+}
+
+#tabs ul.ui-tabs-nav.ui-widget-header {
+    background: white;
+}
+
+.mitipo {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.micolor{
+    margin-left: 1em;
+    margin-bottom: 0;
+    font-size: 36px;
+    font-weight: bolder;
+    padding-bottom: 15px;
+    color: #c91c0f !important;
+}
+
+.centrandoImagen{
+    display: block;
+    margin: auto;
+    box-shadow: 12px 15px 11px 1px rgba(31, 32, 65, 0.6);
+}
+
+.colorOficial{
+    color: #1F2041 ;
+}
+
+/*
+.ui-widget-header {
+	border: 1px solid #00c3ff;
+	background: #e9e9e9;
+	color: #333333;
+	font-weight: bold;
+}
+
+.ui-widget-content {
+	border: 1px solid #dddddd;
+	background: #7579f3;
+	color: white;
+}
+
+.ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, a.ui-button:active, .ui-button:active, .ui-button.ui-state-active:hover {
+    border: 1px solid #003eff;
+    background: #007fff;
+    font-weight: normal;
+    color: #ffffff;
+}
+*/

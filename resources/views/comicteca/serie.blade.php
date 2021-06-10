@@ -18,7 +18,20 @@
                         </div>
                     </div>
                 </section>
+                <section>
+                    <div class="container mt-5 justify-content-center">
+                        <div class="text-center pb-5">
+                        <H2>Más buscados</H2>
 
+                        <div class="row justify-content-center">
+
+                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2" style="height: 250px; width: 100%; background-color: green">
+
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
 
 
                 </div>
