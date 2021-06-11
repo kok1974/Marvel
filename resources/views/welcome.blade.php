@@ -7,7 +7,7 @@
             <div class="cuerpo">
                 <section>
                     <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
+                        <div class="text-center pt-5">
                             <h2>Novedades</h2>
                         </div>
 
@@ -27,7 +27,7 @@
                 </section>
                 <section>
                     <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
+                        <div class="text-center pt-5">
                         <H2>Más buscados</H2>
 
                         <div class="row justify-content-center">

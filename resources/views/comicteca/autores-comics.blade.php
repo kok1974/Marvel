@@ -30,25 +30,25 @@
 
                         <div class="row pt-5">
                             @foreach ($letras as $letra)
-                            <div class="col-12">
-                                <div class="row">
-                                    <div class="col-12 col-sm-6 mt-5">
-                                        <H1 class="micolor" id="{{$letra}}">{{$letra}}</H1>
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 mt-5">
+                                            <H1 class="micolor" id="{{$letra}}">{{$letra}}</H1>
+                                        </div>
+                                        <div class="col-12 col-sm-6 my-5 ml-md-auto justify-content-end d-flex">
+                                            <a class="mr-5" href="#inicio">Inicio</a>
+                                        </div>
                                     </div>
-                                    <div class="col-12 col-sm-6 my-5 ml-md-auto justify-content-end d-flex">
-                                        <a class="colorOficial mr-5" href="#inicio">Inicio</a>
+                                    <div class="row pl-5 ml-5">
+                                        @foreach ($autores as $autor)
+                                            @if (str_starts_with($autor->nombre, $letra))
+                                                <div class="col-12 col-md-6 pb-3">
+                                                    <a href="{{ url('comiteca/autor/'.$autor->creator_id ) }}">{{$autor->nombre.' '.$autor->apellidos}}</a>
+                                                </div>
+                                            @endif
+                                        @endforeach
                                     </div>
                                 </div>
-                                <div class="row pl-5 ml-5">
-                                    @foreach ($autores as $autor)
-                                        @if (str_starts_with($autor->nombre, $letra))
-                                            <div class="col-12 col-md-6 pb-3">
-                                                <a href="{{ url('comiteca/autor/'.$autor->creator_id ) }}">{{$autor->nombre.' '.$autor->apellidos}}</a>
-                                            </div>
-                                        @endif
-                                    @endforeach
-                                </div>
-                            </div>
                             @endforeach
                         </div>
                     </div>

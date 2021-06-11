@@ -6,8 +6,8 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-justify pb-1">{{$creador->nombre.' '.$creador->apellidos}} Comics</h2>
-                    <h3 class="text-justify">{{ucfirst($creador->tipo)}}</h3>
+                    <h2 class="text-justify pb-1">{{$creador->nombre.' '.$creador->apellidos}}</h2>
+                    <h5 class="text-justify ml-5">{{ucfirst($creador->tipo)}}</h5>
                 </div>
 
                 <div class="row pt-5">

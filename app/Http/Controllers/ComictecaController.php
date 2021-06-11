@@ -48,9 +48,11 @@ class ComictecaController extends Controller
 
     public function evento($id)
     {
-        $creador = Event::find($id);
+        $evento = Event::find($id);
+        $cabecera = $evento->imagen;
+        $comicsEvento = $evento->comics()->get();
 
-        return view('comicteca.evento')->with(compact('evento'));
+        return view('comicteca.evento')->with(compact('evento', 'comicsEvento','cabecera'));
     }
 
     public function series()

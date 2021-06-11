@@ -46,7 +46,7 @@ class Event extends Model
      */
     public function comics()
     {
-        return $this->belongsToMany(User::class, 'comics_events','event_id','comic_id');
+        return $this->belongsToMany(Comic::class, 'comics_events','event_id','comic_id');
     }
 
 
