@@ -15,6 +15,9 @@
         <section>
             <div class="container justify-content-center">
                 <div class="row pt-5">
+                    <div class="col-12 mb-5">
+                        <h2 class="text-center">Comics</h2>
+                    </div>
                     @foreach ($comicsEvento as $comic)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
                             <div class="pb-3">
@@ -28,6 +31,9 @@
                 </div>
 
                 <div class="row pt-5">
+                    <div class="col-12 mb-5">
+                        <h2 class="text-center">Series en este evento</h2>
+                    </div>
                     @foreach ($comicsEvento->unique('serie_id') as $comic)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
                             <div class="pb-3">

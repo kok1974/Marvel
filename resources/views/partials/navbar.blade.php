@@ -7,17 +7,16 @@
         <!-- Right Side Of Navbar -->
         <ul class="navbar-nav justify-content-around col-md-9 col-lg-7 mr-auto">
             <li class="nav-item">
-                <a class="nav-link text-white" href="#personajes">Personajes</a>
+                <a class="nav-link text-white" href="{{ url('comiteca/personajes') }}">Personajes</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Comics
                 </a>
                 <div class="dropdown-menu color-drop" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white" href="{{ url('comiteca/series') }}">Por series</a>
-                    <a class="dropdown-item text-white" href="{{ url('comiteca/personajes') }}">Por personajes</a>
-                    <a class="dropdown-item text-white" href="{{ url('comiteca/eventos') }}">Por eventos</a>
-                    <a class="dropdown-item text-white" href="{{ url('comiteca/autores') }}">Por autor</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/series') }}">Series</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/eventos') }}">Eventos</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/autores') }}">Autores</a>
                 </div>
             </li>
             <li class="nav-item">
