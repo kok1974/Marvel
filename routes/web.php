@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ComictecaController;
 use App\Models\Comic;
 use App\Models\User;
 
@@ -53,3 +54,13 @@ Route::resource('admin/creators', App\Http\Controllers\CreatorController::class)
 Route::resource('admin/events', App\Http\Controllers\EventController::class)->middleware('administracion');
 Route::resource('admin/series', App\Http\Controllers\SeriesController::class)->middleware('administracion');
 Route::resource('admin/users', App\Http\Controllers\UserController::class)->middleware('administracion');
+
+Route::get('comiteca/autores', [ComictecaController::class ,'autores']);
+Route::get('comiteca/autor/{id}', [ComictecaController::class ,'autor']);
+Route::get('comiteca/eventos', [ComictecaController::class ,'eventos']);
+Route::get('comiteca/evento/{id}', [ComictecaController::class ,'evento']);
+Route::get('comiteca/series', [ComictecaController::class ,'series']);
+Route::get('comiteca/serie/{id}', [ComictecaController::class ,'serie']);
+Route::get('comiteca/personajes', [ComictecaController::class ,'personajes']);
+Route::get('comiteca/personaje/{id}', [ComictecaController::class ,'personaje']);
+Route::get('comiteca/comic/{id}', [ComictecaController::class ,'comic']);

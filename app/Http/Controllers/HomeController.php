@@ -25,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $novedades = Comic::orderBy('created_at')->take(8)->get();
+        $novedades = Comic::orderBy('created_at', 'desc')->take(8)->get();
         /* $busquedas = ComicsUser::selectRaw('COUNT(comic_id) AS Conteo, comic_id')
                         ->groupBy('comic_id')->orderBy('Conteo','desc')->take(4)->get()->makeHidden(['Conteo']); */
 

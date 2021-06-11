@@ -62,15 +62,6 @@ class User extends Authenticatable
         'remember_token',
     ];
 
-
-    public function administrador(){
-
-        if($this->rol == 'admin'){
-            return true;
-        }
-        return false;
-    }
-
     /**
      * The attributes that should be cast to native types.
      *
@@ -86,5 +77,13 @@ class User extends Authenticatable
     public function comics()
     {
         return $this->belongsToMany(Comic::class, 'comics_users','user_id','comic_id');
+    }
+
+    public function administrador(){
+
+        if($this->rol == 'admin'){
+            return true;
+        }
+        return false;
     }
 }

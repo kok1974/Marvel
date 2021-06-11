@@ -29,7 +29,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property Creator $writer
  * @property Creator $coverArtist
  * @property Creator $penciller
- * @property Series $series
+ * @property Series $serie
  * @property VariantsCover $variantsCover
  * @property VariantsCover[] $variantsCovers
  * @package App
@@ -81,7 +81,7 @@ class Comic extends Model
      */
     public function events()
     {
-        return $this->belongsToMany(User::class, 'comics_events','comic_id','event_id');
+        return $this->belongsToMany(Event::class, 'comics_events','comic_id','event_id');
     }
 
     /**
@@ -119,9 +119,9 @@ class Comic extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
-    public function series()
+    public function serie()
     {
-        return $this->hasOne(Series::class, 'serie_id', 'serie_id');
+        return $this->belongsTo(Series::class, 'serie_id', 'serie_id');
     }
 
     /**
