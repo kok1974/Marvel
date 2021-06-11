@@ -13,7 +13,7 @@
 
                 <div id="tabs">
                     <ul>
-                        <li><a class="" href="#tabs-1">Autores</a></li>
+                        <li><a href="#tabs-1">Autores</a></li>
                         <li><a href="#tabs-2">Guionistas</a></li>
                         <li><a href="#tabs-3">Dibujantes</a></li>
                     </ul>
@@ -36,7 +36,7 @@
                                         <H1 class="micolor" id="{{$letra}}">{{$letra}}</H1>
                                     </div>
                                     <div class="col-12 col-sm-6 my-5 ml-md-auto justify-content-end d-flex">
-                                        <a class="mr-5" href="#inicio">Inicio</a>
+                                        <a class="colorOficial mr-5" href="#inicio">Inicio</a>
                                     </div>
                                 </div>
                                 <div class="row pl-5 ml-5">

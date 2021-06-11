@@ -57,3 +57,10 @@ Route::resource('admin/users', App\Http\Controllers\UserController::class)->midd
 
 Route::get('comiteca/autores', [ComictecaController::class ,'autores']);
 Route::get('comiteca/autor/{id}', [ComictecaController::class ,'autor']);
+Route::get('comiteca/eventos', [ComictecaController::class ,'eventos']);
+Route::get('comiteca/evento/{id}', [ComictecaController::class ,'evento']);
+Route::get('comiteca/series', [ComictecaController::class ,'series']);
+Route::get('comiteca/serie/{id}', [ComictecaController::class ,'serie']);
+Route::get('comiteca/personajes', [ComictecaController::class ,'personajes']);
+Route::get('comiteca/personaje/{id}', [ComictecaController::class ,'personaje']);
+Route::get('comiteca/comic/{id}', [ComictecaController::class ,'comic']);

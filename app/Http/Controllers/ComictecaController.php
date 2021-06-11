@@ -39,5 +39,52 @@ class ComictecaController extends Controller
         return view('comicteca.autor')->with(compact('creador', 'comics'));
     }
 
+    public function eventos()
+    {
+        $eventos = Event::orderBy('titulo')->get();
 
+        return view('comicteca.eventos-comics')->with(compact('eventos'));
+    }
+
+    public function evento($id)
+    {
+        $creador = Event::find($id);
+
+        return view('comicteca.evento')->with(compact('evento'));
+    }
+
+    public function series()
+    {
+        $series = Series::orderBy('titulo')->get();
+
+        return view('comicteca.series-comics')->with(compact('series'));
+    }
+
+    public function serie($id)
+    {
+        $serie = Series::find($id);
+
+        return view('comicteca.serie')->with(compact('serie'));
+    }
+
+    public function personajes()
+    {
+        $personajes = Character::orderBy('nombre')->get();
+
+        return view('comicteca.personajes-comics')->with(compact('personajes'));
+    }
+
+    public function personaje($id)
+    {
+        $personaje = Character::find($id);
+
+        return view('comicteca.personaje')->with(compact('personaje'));
+    }
+
+    public function comic($id)
+    {
+        $comic = Comic::find($id);
+
+        return view('comicteca.comic')->with(compact('comic'));
+    }
 }

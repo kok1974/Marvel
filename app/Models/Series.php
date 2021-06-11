@@ -46,7 +46,7 @@ class Series extends Model
      */
     public function comics()
     {
-        return $this->hasMany('App\Comic', 'serie_id', 'serie_id');
+        return $this->hasMany(Comic::class, 'serie_id', 'serie_id');
     }
 
 

@@ -14,9 +14,9 @@
                     Comics
                 </a>
                 <div class="dropdown-menu color-drop" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item text-white colorhover" href="#">Por series</a>
-                    <a class="dropdown-item text-white" href="#">Por personajes</a>
-                    <a class="dropdown-item text-white" href="#">Por eventos</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/series') }}">Por series</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/personajes') }}">Por personajes</a>
+                    <a class="dropdown-item text-white" href="{{ url('comiteca/eventos') }}">Por eventos</a>
                     <a class="dropdown-item text-white" href="{{ url('comiteca/autores') }}">Por autor</a>
                 </div>
             </li>

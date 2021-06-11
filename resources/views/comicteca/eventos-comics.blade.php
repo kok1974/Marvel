@@ -1,28 +1,52 @@
-        @extends('layouts.app')
+@extends('layouts.app')
 
-        @section('content')
+@section('content')
+    <div class="cuerpo">
+        <section id="hero" class="d-flex justify-content-center align-items-center"></section>
+        <section>
+            <div class="container mt-5 justify-content-center">
+                <div id="inicio" class="pb-5">
+                    <h2 class="text-center pb-1">Eventos</h2>
+                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> . Encuentra los comics que incluye.</p>
+                </div>
 
-            <div class="cuerpo">
-                <section>
-                    <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
-                            <h2>Novedades</h2>
-                        </div>
+            <div class="row">
+                @php
+                    $letras = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+                @endphp
+                <div class="row justify-content-around p-3">
+                    @foreach ($letras as $letra)
+                        <div  class="mr-1 mr-sm-0"><a class="link mitipo" href="{{'#'.$letra}}">{{$letra}}</a></div>
+                    @endforeach
+                </div>
 
-                        <div class="row justify-content-center">
-                        {{--    @foreach ($novedades as $comic)
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2">
-                                  <img class="img img-fluid" src="{{ $comic->imagen.'/portrait_uncanny.'.$comic->mime}}">
+            <div class="row pt-5">
+                @foreach ($letras as $letra)
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col-12 col-sm-6 mt-5">
+                                <H1 class="micolor" id="{{$letra}}">{{$letra}}</H1>
                             </div>
-                            @endforeach--}}
+                            <div class="col-12 col-sm-6 my-5 ml-md-auto justify-content-end d-flex">
+                                <a class="colorOficial mr-5" href="#inicio">Inicio</a>
+                            </div>
+                                </div>
+                                <div class="row pl-5 ml-5">
+                                    @foreach ($eventos as $evento)
+                                        @if (str_starts_with($evento->titulo, $letra))
+                                            <div class="col-12 col-md-6 pb-3">
+                                                <a class="colorOficial" href="{{ url('comiteca/evento/'.$evento->evento_id ) }}">{{$evento->titulo}}</a>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                </div>
+                            </div>
+                            @endforeach
                         </div>
                     </div>
-                </section>
-
-
-
                 </div>
             </div>
-
-        @endsection
+        </section>
+    </div>
+@endsection
 
