@@ -65,8 +65,10 @@ class ComictecaController extends Controller
     public function serie($id)
     {
         $serie = Series::find($id);
+        $cabecera = $serie->imagen;
+        $comicsSerie = $serie->comics()->get();
 
-        return view('comicteca.serie')->with(compact('serie'));
+        return view('comicteca.serie')->with(compact('serie','comicsSerie','cabecera'));
     }
 
     public function personajes()
@@ -79,14 +81,18 @@ class ComictecaController extends Controller
     public function personaje($id)
     {
         $personaje = Character::find($id);
+        $comicsPersonaje = $personaje->comics()->get();
 
-        return view('comicteca.personaje')->with(compact('personaje'));
+        return view('comicteca.personaje')->with(compact('personaje','comicsPersonaje'));
     }
 
     public function comic($id)
     {
         $comic = Comic::find($id);
+        $guionista = $comic->writer()->first();
+        $dibujante = $comic->penciller()->first();
+        $portadista = $comic->coverArtist()->first();
 
-        return view('comicteca.comic')->with(compact('comic'));
+        return view('comicteca.comic')->with(compact('comic','guionista','dibujante','portadista'));
     }
 }

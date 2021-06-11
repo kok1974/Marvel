@@ -1,41 +1,43 @@
-        @extends('layouts.app')
+@extends('layouts.app')
 
-        @section('content')
+@section('content')
 
-            <div class="cuerpo">
-                <section>
-                    <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
-                            <h2>Novedades</h2>
-                        </div>
-
-                        <div class="row justify-content-center">
-                        {{--    @foreach ($novedades as $comic)
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2">
-                                  <img class="img img-fluid" src="{{ $comic->imagen.'/portrait_uncanny.'.$comic->mime}}">
-                            </div>
-                            @endforeach--}}
+    <div class="cuerpo">
+         <section>
+             <div class="container-fluid p-4" style="background-color: #E3E3DF">
+                <div class="row px-5">
+                    <div class="col-12 col-sm-5 col-md-5 col-lg-3">
+                        <div class="pb-3">
+                                <img class="img img-fluid centrandoImagen mb-3" src="{{ $serie->imagen.'/detail.'.$serie->mime}}" alt="{{$serie->titulo}}">
+                            </a>
                         </div>
                     </div>
-                </section>
-                <section>
-                    <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
-                        <H2>Más buscados</H2>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2" style="height: 250px; width: 100%; background-color: green">
-
-                            </div>
-
+                    <div class="col-12 col-sm-7 col-md-7 col-lg-9">
+                        <div id="inicio" class="text">
+                            <h2 class="text-justify m-3 pb-3 ">{{$serie->titulo}}</h2>
+                            <h5 class="text-justify m-3">{{($serie->descripcion)}}</h5>
                         </div>
                     </div>
-                </section>
-
-
                 </div>
             </div>
 
-        @endsection
-
+            <div class="container justify-content-center mt-5">
+                <div class="col-12">
+                    <h2 class="text-center">Comics</h2>
+                </div>
+                <div class="row py-5">
+                    @foreach ($comicsSerie as $comic)
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
+                            <div class="pb-3">
+                                <a href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">
+                                    <img class="img img-fluid centrandoImagen mb-3" src="{{ $comic->imagen.'/portrait_incredible.'.$comic->mime}}" alt="{{$comic->titulo}}">
+                                 </a>
+                            </div>
+                            <div class="text-center"><h6><a class="colorOficial" href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">{{$comic->titulo}}</a></h6></div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    </div>
+@endsection

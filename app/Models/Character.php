@@ -27,8 +27,8 @@ class Character extends Model
     protected $primaryKey = 'personaje_id';
 
     static $rules = [
-		'personaje_id' => 'required',
 		'nombre' => 'required',
+        'personaje_id' => 'required',
     ];
 
     protected $perPage = 10;
@@ -46,7 +46,7 @@ class Character extends Model
      */
     public function comics()
     {
-        return $this->belongsToMany(User::class, 'comics_characters','character_id','comic_id');
+        return $this->belongsToMany(Comic::class, 'comics_characters','personaje_id','comic_id');
     }
 
 

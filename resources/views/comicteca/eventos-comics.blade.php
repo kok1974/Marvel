@@ -6,8 +6,9 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-center pb-1">Eventos</h2>
-                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> . Encuentra los comics que incluye.</p>
+                    <h2 class="text-center pb-2">Eventos</h2>
+                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> siempre hay imposibles, asombrosas y fantásticas historias. Peor hay historias que van más
+                        allá, cambian el mundo o hasta el universo. Estos son los eventos del mundo Marvel.</p>
                 </div>
 
                 <div>
@@ -21,7 +22,7 @@
                             @endforeach
                         </div>
 
-                        <div class="row pt-5">
+                        <div class="row py-5">
                             @foreach ($letras as $letra)
                                 <div class="col-12">
                                     <div class="row">

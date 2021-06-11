@@ -73,7 +73,7 @@ class Comic extends Model
      */
     public function characters()
     {
-        return $this->belongsToMany(User::class, 'comics_characters','comic_id','character_id');
+        return $this->belongsToMany(Character::class, 'comics_characters','comic_id','personaje_id');
     }
 
     /**
@@ -97,7 +97,7 @@ class Comic extends Model
      */
     public function writer()
     {
-        return $this->belongsTo(Creator::class, 'creator_id', 'guionista_id');
+        return $this->belongsTo(Creator::class, 'guionista_id', 'creator_id');
     }
 
     /**
@@ -105,7 +105,7 @@ class Comic extends Model
      */
     public function coverArtist()
     {
-        return $this->belongsTo(Creator::class, 'creator_id', 'artistaPortada_id');
+        return $this->belongsTo(Creator::class, 'artistaPortada_id', 'creator_id');
     }
 
     /**
@@ -113,7 +113,7 @@ class Comic extends Model
      */
     public function penciller()
     {
-        return $this->belongsTo(Creator::class, 'creator_id', 'dibujante_id');
+        return $this->belongsTo(Creator::class, 'dibujante_id', 'creator_id');
     }
 
     /**

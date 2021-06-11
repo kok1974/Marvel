@@ -1,41 +1,56 @@
-        @extends('layouts.app')
+@extends('layouts.app')
 
-        @section('content')
+@section('content')
 
-            <div class="cuerpo">
-                <section>
-                    <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
-                            <h2>Novedades</h2>
+    <div class="cuerpo">
+        <section>
+            <div class="container mt-5 justify-content-center">
+                <div id="inicio" class="pb-5">
+                    <h2 class="text-center pb-2">Personajes</h2>
+                    <p class="text-justify">Los protagonistas de esas historias que nos gustan, fieles amigos a los que vuelves a visitar. Esta sección incluye tanto los personajes individuales
+                        como los grupos que existen en Marvel Comics &reg;, la <strong>Casa de las Ideas</strong>. La primera familia, Logan (para otros solo Lobezno), Peter Parker, Vengadores,
+                        MJ, los hijos del átomo,  Hydra, IMA, .... y aquellos que nunca volveran, o tal vez si.</p>
+                </div>
+
+                <div>
+                    <div class="row d-block colorOficial">
+                        @php
+                            $letras = array("A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z");
+                        @endphp
+                        <div class="row justify-content-around p-3">
+                            @foreach ($letras as $letra)
+                                <div  class="mr-1 mr-sm-0"><a class="link mitipo colorOficial" href="{{'#'.$letra}}">{{$letra}}</a></div>
+                            @endforeach
                         </div>
 
-                        <div class="row justify-content-center">
-                        {{--    @foreach ($novedades as $comic)
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2">
-                                  <img class="img img-fluid" src="{{ $comic->imagen.'/portrait_uncanny.'.$comic->mime}}">
-                            </div>
-                            @endforeach--}}
+                        <div class="row py-5">
+                            @foreach ($letras as $letra)
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class="col-12 col-sm-6 mt-5">
+                                            <H1 class="micolor" id="{{$letra}}">{{$letra}}</H1>
+                                        </div>
+                                        <div class="col-12 col-sm-6 my-5 ml-md-auto justify-content-end d-flex">
+                                            <a class="colorOficial mr-5" href="#inicio">Inicio</a>
+                                        </div>
+                                    </div>
+                                    <div class="row pl-5 ml-5">
+                                        @foreach ($personajes as $personaje)
+                                            @if (str_starts_with($personaje->nombre, $letra))
+                                                <div class="col-12 col-md-6 pb-3">
+                                                    <a class="colorOficial" href="{{ url('comiteca/personaje/'.$personaje->personaje_id ) }}">{{$personaje->nombre}}</a>
+                                                </div>
+                                                @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                            @endforeach
                         </div>
                     </div>
-                </section>
-                <section>
-                    <div class="container mt-5 justify-content-center">
-                        <div class="text-center pb-5">
-                        <H2>Más buscados</H2>
-
-                        <div class="row justify-content-center">
-
-                            <div class="col-12 col-sm-6 col-lg-4 col-xl-3 mb-2" style="height: 250px; width: 100%; background-color: green">
-
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-
                 </div>
             </div>
+        </section>
+    </div>
+@endsection
 
-        @endsection
 
