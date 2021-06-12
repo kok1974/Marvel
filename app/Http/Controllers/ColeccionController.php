@@ -17,11 +17,24 @@ class ColeccionController extends Controller
 {
     public function autores()
     {
-        $autores = Creator::orderBy('nombre')->get();
-        $guionistas = $autores->where('tipo','like', 'guionista');
-        $dibujantes = $autores->where('tipo','like', 'dibujante');
+        $user = auth()->id();
+        $guionistas = Creator::join('comics','creators.creator_id', '=', 'comics.guionista_id')
+                        ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
+                        ->join('users', 'comics_users.user_id', '=', 'users.user_id')
+                        ->where('users.user_id', $user)
+                        ->select('creators.creator_id', 'creators.nombre', 'creators.apellidos')
+                        ->distinct()
+                        ->get();
 
-        return view('coleccion.autores-comics')->with(compact('autores','guionistas','dibujantes'));
+        $dibujantes = Creator::join('comics','creators.creator_id', '=', 'comics.dibujante_id')
+                        ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
+                        ->join('users', 'comics_users.user_id', '=', 'users.user_id')
+                        ->where('users.user_id', $user)
+                        ->select('creators.creator_id', 'creators.nombre', 'creators.apellidos')
+                        ->distinct()
+                        ->get();
+
+        return view('coleccion.autores-comics')->with(compact('guionistas','dibujantes'));
     }
 
     public function autor($id)
