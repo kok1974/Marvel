@@ -9,10 +9,6 @@
                     <h2 class="text-justify pb-2">Listado de autores de tu colección</h2>
                     <p class="text-justify">Aquí se te muestra el listado de los autores, dividido en guionista y dibujantes, de los que tienes algun comic.</p>
                 </div>
-                @php
-                  //  $user = Auth::user();
-                  //  $userComic = $user->comics()-get();
-                @endphp
                 <div id="tabs">
                     <ul>
                         <li><a href="#tabs-2">Guionistas</a></li>
@@ -44,7 +40,7 @@
                                     @foreach ($guionistas as $guionista)
                                         @if (str_starts_with($guionista->nombre, $letra))
                                             <div class="col-12 col-md-6 pb-3">
-                                                <a href="{{ url('comiteca/autor/'.$guionista->creator_id ) }}">{{$guionista->nombre.' '.$guionista->apellidos}}</a>
+                                                <a href="{{ url('coleccion/autor/'.$guionista->creator_id ) }}">{{$guionista->nombre.' '.$guionista->apellidos}}</a>
                                             </div>
                                        @endif
                                     @endforeach
@@ -79,7 +75,7 @@
                                     @foreach ($dibujantes as $dibujante)
                                         @if (str_starts_with($dibujante->nombre, $letra))
                                             <div class="col-12 col-md-6 pb-3">
-                                                <a href="{{ url('comiteca/autor/'.$dibujante->creator_id ) }}">{{$dibujante->nombre.' '.$dibujante->apellidos}}</a>
+                                                <a href="{{ url('coleccion/autor/'.$dibujante->creator_id ) }}">{{$dibujante->nombre.' '.$dibujante->apellidos}}</a>
                                             </div>
                                         @endif
                                     @endforeach

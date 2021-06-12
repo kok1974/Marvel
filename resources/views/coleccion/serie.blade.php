@@ -27,6 +27,11 @@
                 </div>
                 <div class="row py-5">
                     @foreach ($comicsSerie as $comic)
+                    @php
+                    $user = Auth::user();
+                    $hasComic = $user->comics()->where('comics.comic_id', $comic->comic_id)->exists();
+                    @endphp
+                    @if ($hasComic)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
                             <div class="pb-3">
                                 <a href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">
@@ -34,8 +39,8 @@
                                  </a>
                             </div>
                             <div class="text-center"><h6><a class="colorOficial" href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">{{$comic->titulo}}</a></h6></div>
-                            @include('partials.boton-coleccion')
                         </div>
+                    @endif
                     @endforeach
                 </div>
             </div>

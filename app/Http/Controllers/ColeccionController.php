@@ -18,6 +18,7 @@ class ColeccionController extends Controller
     public function autores()
     {
         $user = auth()->id();
+
         $guionistas = Creator::join('comics','creators.creator_id', '=', 'comics.guionista_id')
                         ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
                         ->join('users', 'comics_users.user_id', '=', 'users.user_id')
@@ -53,7 +54,17 @@ class ColeccionController extends Controller
 
     public function eventos()
     {
-        $eventos = Event::orderBy('titulo')->get();
+
+        $user = auth()->id();
+
+        $eventos = Event::join('comics_events','events.event_id', '=', 'comics_events.event_id')
+                        ->join('comics','comics_events.comic_id', '=', 'comics.comic_id')
+                        ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
+                        ->join('users', 'comics_users.user_id', '=', 'users.user_id')
+                        ->where('users.user_id', $user)
+                        ->select('events.event_id', 'events.titulo')
+                        ->distinct()
+                        ->get();
 
         return view('coleccion.eventos-comics')->with(compact('eventos'));
     }
@@ -69,7 +80,16 @@ class ColeccionController extends Controller
 
     public function series()
     {
-        $series = Series::orderBy('titulo')->get();
+        $user = auth()->id();
+
+        $series = Series::join('comics','series.serie_id', '=', 'comics.serie_id')
+                ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
+                ->join('users', 'comics_users.user_id', '=', 'users.user_id')
+                ->where('users.user_id', $user)
+                ->select('series.serie_id', 'series.titulo')
+                ->distinct()
+                ->get();
+
 
         return view('coleccion.series-comics')->with(compact('series'));
     }
@@ -85,7 +105,16 @@ class ColeccionController extends Controller
 
     public function personajes()
     {
-        $personajes = Character::orderBy('nombre')->get();
+        $user = auth()->id();
+
+        $personajes = Character::join('comics_characters','characters.personaje_id', '=', 'comics_characters.personaje_id')
+                                ->join('comics','comics_characters.comic_id', '=', 'comics.comic_id')
+                                ->join('comics_users', 'comics.comic_id', '=', 'comics_users.comic_id')
+                                ->join('users', 'comics_users.user_id', '=', 'users.user_id')
+                                ->where('users.user_id', $user)
+                                ->select('characters.personaje_id', 'characters.nombre')
+                                ->distinct()
+                                ->get();
 
         return view('coleccion.personajes-comics')->with(compact('personajes'));
     }

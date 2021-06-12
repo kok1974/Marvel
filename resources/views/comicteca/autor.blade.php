@@ -27,7 +27,7 @@
                     @endforeach
                 </div>
 
-                <div class="row pt-5">
+                <div class="row p-5">
                     <div class="col-12 mb-5">
                         <h2 class="text-center">Series</h2>
                     </div>

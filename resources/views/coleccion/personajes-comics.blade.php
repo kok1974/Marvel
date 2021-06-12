@@ -6,10 +6,8 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-center pb-2">Personajes</h2>
-                    <p class="text-justify">Los protagonistas de esas historias que nos gustan, fieles amigos a los que vuelves a visitar. Esta sección incluye tanto los personajes individuales
-                        como los grupos que existen en Marvel Comics &reg;, la <strong>Casa de las Ideas</strong>. La primera familia, Logan (para otros solo Lobezno), Peter Parker, Vengadores,
-                        MJ, los hijos del átomo,  Hydra, IMA, .... y aquellos que nunca volveran, o tal vez si.</p>
+                    <h2 class="text-justify pb-2">Personajes</h2>
+                    <p class="text-justify">Los protagonistas de las historias en tu colección.</p>
                 </div>
 
                 <div>
@@ -38,7 +36,7 @@
                                         @foreach ($personajes as $personaje)
                                             @if (str_starts_with($personaje->nombre, $letra))
                                                 <div class="col-12 col-md-6 pb-3">
-                                                    <a class="colorOficial" href="{{ url('comiteca/personaje/'.$personaje->personaje_id ) }}">{{$personaje->nombre}}</a>
+                                                    <a class="colorOficial" href="{{ url('coleccion/personaje/'.$personaje->personaje_id ) }}">{{$personaje->nombre}}</a>
                                                 </div>
                                                 @endif
                                         @endforeach

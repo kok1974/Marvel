@@ -6,9 +6,8 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-center pb-2">Eventos</h2>
-                    <p class="text-justify">En la <strong>Casa de las Ideas</strong> siempre hay imposibles, asombrosas y fantásticas historias. Peor hay historias que van más
-                        allá, cambian el mundo o hasta el universo. Estos son los eventos del mundo Marvel.</p>
+                    <h2 class="text-justify pb-2">Listado de eventos de tu colección</h2>
+                    <p class="text-justify">Aquí se te muestra el listado de los eventos en los que tienes algun comic.</p>
                 </div>
 
                 <div>
@@ -37,7 +36,7 @@
                                         @foreach ($eventos as $evento)
                                             @if (str_starts_with($evento->titulo, $letra))
                                                 <div class="col-12 col-md-6 pb-3">
-                                                    <a class="colorOficial" href="{{ url('comiteca/evento/'.$evento->event_id ) }}">{{$evento->titulo}}</a>
+                                                    <a class="colorOficial" href="{{ url('coleccion/evento/'.$evento->event_id ) }}">{{$evento->titulo}}</a>
                                                 </div>
                                                 @endif
                                         @endforeach

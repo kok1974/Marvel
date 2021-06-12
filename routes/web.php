@@ -19,8 +19,6 @@ use App\Models\User;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index');
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
 
 Auth::routes();
 
@@ -84,12 +82,12 @@ Route::get('comiteca/personajes', [ComictecaController::class ,'personajes']);
 Route::get('comiteca/personaje/{id}', [ComictecaController::class ,'personaje']);
 Route::get('comiteca/comic/{id}', [ComictecaController::class ,'comic']);
 
-// TODO auth
-Route::get('coleccion/autores', [ColeccionController::class ,'autores']);
-Route::get('coleccion/autor/{id}', [ColeccionController::class ,'autor']);
-Route::get('coleccion/eventos', [ColeccionController::class ,'eventos']);
-Route::get('coleccion/evento/{id}', [ColeccionController::class ,'evento']);
-Route::get('coleccion/series', [ColeccionController::class ,'series']);
-Route::get('coleccion/serie/{id}', [ColeccionController::class ,'serie']);
-Route::get('coleccion/personajes', [ColeccionController::class ,'personajes']);
-Route::get('coleccion/personaje/{id}', [ColeccionController::class ,'personaje']);
+/* Rutas Colección */
+Route::get('coleccion/autores', [ColeccionController::class ,'autores'])->middleware('auth');
+Route::get('coleccion/autor/{id}', [ColeccionController::class ,'autor'])->middleware('auth');
+Route::get('coleccion/eventos', [ColeccionController::class ,'eventos'])->middleware('auth');
+Route::get('coleccion/evento/{id}', [ColeccionController::class ,'evento'])->middleware('auth');
+Route::get('coleccion/series', [ColeccionController::class ,'series'])->middleware('auth');
+Route::get('coleccion/serie/{id}', [ColeccionController::class ,'serie'])->middleware('auth');
+Route::get('coleccion/personajes', [ColeccionController::class ,'personajes'])->middleware('auth');
+Route::get('coleccion/personaje/{id}', [ColeccionController::class ,'personaje'])->middleware('auth');

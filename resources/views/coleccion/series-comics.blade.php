@@ -6,8 +6,9 @@
         <section>
             <div class="container mt-5 justify-content-center">
                 <div id="inicio" class="pb-5">
-                    <h2 class="text-center pb-2">Series</h2>
-                    <p class="text-justify">Los cómics y novelas gráficas de Marvel Comics &reg;, la <strong>Casa de las Ideas</strong>. Historias sin fin de tus personajes favoritos y los que aún te quedan por descubrir. <strong>EXCELSIOR!!!</strong></p>
+                    <h2 class="text-justify pb-2">Series</h2>
+                    <p class="text-justify">Historias sin fin de tus personajes favoritos que dispones en tu colección. Aún te quedan por descubrir.</p>
+                    <p class="text-center"><strong>EXCELSIOR!!!</strong></p>
                 </div>
 
                 <div>
@@ -36,7 +37,7 @@
                                         @foreach ($series as $serie)
                                             @if (str_starts_with($serie->titulo, $letra))
                                                 <div class="col-12 col-md-6 pb-3">
-                                                    <a class="colorOficial" href="{{ url('comiteca/serie/'.$serie->serie_id ) }}">{{$serie->titulo}}</a>
+                                                    <a class="colorOficial" href="{{ url('coleccion/serie/'.$serie->serie_id ) }}">{{$serie->titulo}}</a>
                                                 </div>
                                                 @endif
                                         @endforeach
