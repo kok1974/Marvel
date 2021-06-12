@@ -76,7 +76,7 @@ class User extends Authenticatable
      */
     public function comics()
     {
-        return $this->belongsToMany(Comic::class, 'comics_users','user_id','comic_id');
+        return $this->belongsToMany(Comic::class, 'comics_users','user_id','comic_id')->withTimestamps();
     }
 
     public function administrador(){

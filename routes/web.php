@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\ComictecaController;
+use App\Http\Controllers\ColeccionController;
 use App\Models\Comic;
 use App\Models\User;
 
@@ -23,13 +24,29 @@ Route::get('/', 'App\Http\Controllers\HomeController@index');
 
 Auth::routes();
 
-// abierta para la app
+/* abierta para la app, permite añadir y quitar comic a la colección */
+Route::post('anadeComic/{id}/{userid}', function ($id,$userid) {
+    $comics = Comic::find($id);
+    $comics->users()->attach($userid);
+
+    return back()->with('success', 'ComicsUser deleted successfully');
+})->name('comics-users.mete');
+
+Route::delete('quitaComic/{id}/{userid}', function ($id,$userid) {
+    $comics = Comic::find($id);
+    $comics->users()->detach($userid);
+
+    return back()->with('success', 'ComicsUser deleted successfully');
+})->name('comics-users.saca');
+
+/* Rutas de administración */
+
 Route::delete('admin/comicusers/{id}/{userid}', function ($id,$userid) {
     $comics = Comic::find($id);
     $comics->users()->detach($userid);
 
     return redirect()->route('comics-users.index')->with('success', 'ComicsUser deleted successfully');
-})->name('comics-users.borra');
+})->name('comics-users.borra')->middleware('administracion');
 
 Route::delete('admin/comiccharacter/{id}/{characterid}', function ($id,$characterid) {
     $comics = Comic::find($id);
@@ -55,6 +72,8 @@ Route::resource('admin/events', App\Http\Controllers\EventController::class)->mi
 Route::resource('admin/series', App\Http\Controllers\SeriesController::class)->middleware('administracion');
 Route::resource('admin/users', App\Http\Controllers\UserController::class)->middleware('administracion');
 
+/* Rutas Comicteca */
+
 Route::get('comiteca/autores', [ComictecaController::class ,'autores']);
 Route::get('comiteca/autor/{id}', [ComictecaController::class ,'autor']);
 Route::get('comiteca/eventos', [ComictecaController::class ,'eventos']);
@@ -64,3 +83,13 @@ Route::get('comiteca/serie/{id}', [ComictecaController::class ,'serie']);
 Route::get('comiteca/personajes', [ComictecaController::class ,'personajes']);
 Route::get('comiteca/personaje/{id}', [ComictecaController::class ,'personaje']);
 Route::get('comiteca/comic/{id}', [ComictecaController::class ,'comic']);
+
+// TODO auth
+Route::get('coleccion/autores', [ColeccionController::class ,'autores']);
+Route::get('coleccion/autor/{id}', [ColeccionController::class ,'autor']);
+Route::get('coleccion/eventos', [ColeccionController::class ,'eventos']);
+Route::get('coleccion/evento/{id}', [ColeccionController::class ,'evento']);
+Route::get('coleccion/series', [ColeccionController::class ,'series']);
+Route::get('coleccion/serie/{id}', [ColeccionController::class ,'serie']);
+Route::get('coleccion/personajes', [ColeccionController::class ,'personajes']);
+Route::get('coleccion/personaje/{id}', [ColeccionController::class ,'personaje']);

@@ -17,6 +17,10 @@ body {
     color: #1F2041 !important;
 }
 
+.minAltura{
+    min-height: 63vh;
+}
+
 /* Barra navegación */
 
 .navbar-inverse {
