@@ -26,6 +26,7 @@
                                  </a>
                             </div>
                             <div class="text-center"><h6><a class="colorOficial" href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">{{$comic->titulo}}</a></h6></div>
+                            @include('partials.boton-coleccion')
                         </div>
                     @endforeach
                 </div>

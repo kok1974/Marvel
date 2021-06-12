@@ -8,14 +8,14 @@
                 <div class="row px-5">
                     <div class="col-12 col-sm-5 col-md-5 col-lg-3">
                         <div class="pb-3">
-                                <img class="img img-fluid centrandoImagen mb-3" src="{{ $personaje->imagen.'/detail.'.$personaje->mime}}" alt="{{$personaje->nombre}}">
+                                <img class="img img-fluid centrandoImagen mb-3" src="{{ $serie->imagen.'/detail.'.$serie->mime}}" alt="{{$serie->titulo}}">
                             </a>
                         </div>
                     </div>
                     <div class="col-12 col-sm-7 col-md-7 col-lg-9">
                         <div id="inicio" class="text">
-                            <h2 class="text-justify m-3 pb-3 ">{{$personaje->nombre}}</h2>
-                            <h5 class="text-justify m-3">{{($personaje->descripcion)}}</h5>
+                            <h2 class="text-justify m-3 pb-3 ">{{$serie->titulo}}</h2>
+                            <h5 class="text-justify m-3">{{($serie->descripcion)}}</h5>
                         </div>
                     </div>
                 </div>
@@ -26,7 +26,12 @@
                     <h2 class="text-center">Comics</h2>
                 </div>
                 <div class="row py-5">
-                    @foreach ($comicsPersonaje as $comic)
+                    @foreach ($comicsSerie as $comic)
+                    @php
+                    $user = Auth::user();
+                    $hasComic = $user->comics()->where('comics.comic_id', $comic->comic_id)->exists();
+                    @endphp
+                    @if ($hasComic)
                         <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-5">
                             <div class="pb-3">
                                 <a href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">
@@ -34,8 +39,8 @@
                                  </a>
                             </div>
                             <div class="text-center"><h6><a class="colorOficial" href="{{ url('comiteca/comic/'.$comic->comic_id ) }}">{{$comic->titulo}}</a></h6></div>
-                            @include('partials.boton-coleccion')
                         </div>
+                    @endif
                     @endforeach
                 </div>
             </div>

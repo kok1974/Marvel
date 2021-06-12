@@ -11,6 +11,7 @@
                                 <img class="img img-fluid centrandoImagen mb-3" src="{{ $comic->imagen.'/portrait_uncanny.'.$comic->mime}}" alt="{{$comic->titulo}}">
                             </a>
                         </div>
+                        @include('partials.boton-coleccion')
                     </div>
                     <div class="col-12 col-md-7 col-lg-9">
                         <div id="inicio" class="col-8 mr-auto font-weight-bold">
@@ -35,6 +36,7 @@
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
     </div>

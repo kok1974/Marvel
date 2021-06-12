@@ -11,25 +11,31 @@
             <!-- The slideshow -->
             <div class="carousel-inner" >
               <div class="carousel-item active">
-                <img class="d-block img-fluid" src="{{ asset('imagenes/1.jpg') }}" alt="**">
-                <div class="carousel-caption-mio text-white">
-                    <H2>Lorem o no Lorem</H2>
-                    <p>Amatomaa a gramenawer a gramenawer fistro de la pradera jarl diodeno.</p>
-                  </div>
+                <img class="d-block img-fluid" src="{{ asset('imagenes/1.jpg') }}" alt="Wakanda">
+                <a href="{{ url('comiteca/evento/245') }}">
+                    <div class="carousel-caption-mio text-white">
+                        <H2>Wakanda Forever!!!</H2>
+                        <p>La guerra de Lobezno llega a Wakanda</p>
+                    </div>
+                </a>
               </div>
               <div class="carousel-item">
-                <img class="d-block img-fluid" src="{{ asset('imagenes/2.jpg') }}" alt="**">
-                <div class="carousel-caption-mio text-white">
-                    <H2>Menos Loren</H2>
-                    <p>Lorem fistrum benemeritaar te va a hasé pupitaa. </p>
-                  </div>
+                <img class="d-block img-fluid" src="{{ asset('imagenes/2.jpg') }}" alt="viuda_negra">
+                <a href="{{ url('comiteca/serie/729') }}">
+                    <div class="carousel-caption-mio text-white">
+                        <H2>Desde Rusia con amor</H2>
+                        <p>La espia que me amo. Natasha, la viuda negra, ha vuelto con su familia. </p>
+                    </div>
+                </a>
               </div>
               <div class="carousel-item" >
-                <img class="d-block img-fluid" src="{{ asset('imagenes/3.jpg') }}" alt="**">
-                <div class="carousel-caption-mio text-white">
-                    <H2>Menos Loren</H2>
-                    <p>Lorem fistrum benemeritaar te va a hasé pupitaa qué dise.</p>
-                  </div>
+                <img class="d-block img-fluid" src="{{ asset('imagenes/3.jpg') }}" alt="Asia">
+                <a href="{{ url('comiteca/serie/788') }}">
+                    <div class="carousel-caption-mio text-white">
+                        <H2>Este vs Oeste</H2>
+                        <p>!!Vuelve la guerra fria!! Las manipulaciones del Barón Zemo elevan la tensión</p>
+                    </div>
+                </a>
               </div>
             </div>
             <!-- Left and right controls -->
