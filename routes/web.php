@@ -91,3 +91,7 @@ Route::get('coleccion/series', [ColeccionController::class ,'series'])->middlewa
 Route::get('coleccion/serie/{id}', [ColeccionController::class ,'serie'])->middleware('auth');
 Route::get('coleccion/personajes', [ColeccionController::class ,'personajes'])->middleware('auth');
 Route::get('coleccion/personaje/{id}', [ColeccionController::class ,'personaje'])->middleware('auth');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
